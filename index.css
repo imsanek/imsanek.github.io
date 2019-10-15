@@ -146,35 +146,63 @@ body a {
     border-bottom: 2px solid gold;
 }
 
-.search{
-    flex-grow: 1;
+.searchBox {
+  margin-left: auto;
+  margin-right: 35px;
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+
 }
 
-.search input{
-    flex-grow: 1;
-    border-radius: 10px;
-    padding: 3px 10px 3px;
-    height: 30px;
-    border: 1px solid gray;
-    outline: none;
-    font-size: 18px;
-    width: 75px;
-    opacity: 0;
+.searchBox:hover > .searchInput {
+  width: 240px;
+  padding: 0 6px;
 }
 
-.search button{
-    width: 30px;
-    height: 30px;
-    background-color: #000;
-    color: #fff;
-    border: 0;
-    margin: 0 15px 0 15px;
+.searchBox:hover > .searchButton {
+  background: white;
+  color : #2f3640;
 }
 
-.search button:hover{
-    cursor: pointer;
-    background-color: gold;
-    border-radius: 10px;
+.searchButton {
+  color: white;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.searchInput {
+  border:none;
+  background: none;
+  outline:none;
+  float:left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+
+}
+
+@media screen and (max-width: 620px) {
+  .searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+  }
+}
+
+.search {
+  flex-grow: 1;
+  position: relative;
 }
 
 .slider-box{
@@ -203,6 +231,7 @@ body a {
     align-items: center;
     padding: 0;
     margin: 0;
+    font-size: 25px;
     list-style: none;
 }
 
