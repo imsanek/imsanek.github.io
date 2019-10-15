@@ -1,0 +1,150 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MordowNews</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./slider.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="main-preview">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div> 
+    </div>
+
+    <header class="header">
+        <nav class="navigation">
+            <ul class="navigation-ul">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">Cat.</a></li>
+                <li><a href="#">TV</a></li>
+            </ul>
+            <form class="navigation search">
+                <input type="text" name="search" placeholder="Search...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </nav>
+    </header>
+     <div class="slider-box">
+        <div class="slider">
+            <ul class="pgwSlider">
+                <li>
+                    <a href="#" target="_blank">
+                        <img src="http://cranhamcatz.co.uk/wp-content/uploads/2015/10/cranhamcatz-6.jpg" data-description="Кисик1" alt="smpl_Text">
+                        <span>Мур</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank">
+                        <img src="https://www.blbsolicitors.co.uk/wp-content/uploads/2019/09/Cat.png" data-description="Кисик2" alt="smpl_Text">
+                        <span>Мур</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank">
+                        <img src="https://www.runthinkshootlive.com/media/2015/08/1100-btc-on-a-break-1100x300.jpg" data-description="Кисик3" alt="smpl_Text">
+                        <span>Мур</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank">
+                        <img src="http://www.pensionepergatti.net/wp-content/uploads/2016/06/gattitestata2.jpg" data-description="Кисик4" alt="smpl_Text">
+                        <span>Мур</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="slider-aside">
+            <ul class="social">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-vk"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </div>  
+    <main class="main">
+        <div class="main-content">
+            <div class="content-box">
+                <div class="content">
+                    <div class="content-header">
+                        Иуда в край охерел
+                    </div>
+                    <div class="content-desc">
+                        Начитавшись яойных фанфиков Иуда сошел с тропы натурализма и начал...
+                    </div>
+                    <div class="tags">
+                        <div class="tags-item">
+                            ШОК
+                        </div>
+                        <div class="tags-item">
+                            ШОК
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-box">
+                <div class="content">
+                    <div class="content-header">
+                            Иуда в край охерел
+                        </div>
+                        <div class="content-desc">
+                            Начитавшись яойных фанфиков Иуда сошел с тропы натурализма и начал...
+                        </div>
+                        <div class="tags">
+                            <div class="tags-item">
+                                ШОК
+                            </div>
+                            <div class="tags-item">
+                                    ШОК
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="content-box">
+                <div class="content">
+                    <div class="content-header">
+                        Иуда в край охерел
+                    </div>
+                    <div class="content-desc">
+                        Начитавшись яойных фанфиков Иуда сошел с тропы натурализма и начал...
+                    </div>
+                    <div class="tags">
+                        <div class="tags-item">
+                            ШОК
+                        </div>
+                        <div class="tags-item">
+                                ШОК
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script src="./js/slider.js"></script>
+<script>
+    var i = 0;
+    var apiJSON;
+
+    $(document).ready(function(){
+        setTimeout(function() {$('.main-preview').fadeOut() }, 400);
+        $('.pgwSlider').pgwSlider();
+    });
+
+    var data = new Date();
+    data = data + '';
+    data = data.split(' ');
+
+</script>
+</body>
+</html>
