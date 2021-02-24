@@ -1,0 +1,251 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>А-ля магазин</title>
+    <link rel="stylesheet" href="./jRat.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+    <div class="main-preview">
+            <div class="loader">
+                <div class="inner one"></div>
+                <div class="inner two"></div>
+                <div class="inner three"></div>
+            </div> 
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-fixed">
+            <div class="sidebar-container"><img src="./img/g2a_logo.png" alt="g2a_logo" class="g2a-logo"></div>
+            <div class="sidebar-container"><img src="./img/logo.png" alt="main-logo" class="main-logo"></div>
+            <div class="sidebar-container">
+                <section class="weather">
+                    <span class="weather-grad-count"></span>
+                </section>
+                <section class="weather-cityName">Simferopol</section> 
+                <span class="devlp">@kizmato</span>     
+            </div>
+            
+        </div>
+    </div>
+    <div class="main-line"><img src="./img/side.png"></div>
+    <main>
+        <header class="header">
+            <nav class="navigation">
+                    <ul class="navigation-ul">
+                        <li><a href="./index.html">Main</a></li>
+                        <li><a href="./search.html">Search of games</a></li>
+                        <li><a href="#">Admin</a></li>
+                        <li><a href="./jRat.html">How to jRat'</a></li>
+                        <li><a href="./univer.html">University?!?</a></li>
+                    </ul>
+                    <ul class="navigation-social">
+                        <li><i class="fab fa-facebook"></i></li>
+                        <li><i class="fab fa-vk"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                    </ul>
+            </nav>
+        </header>
+
+        <div class="current-section">
+            <ul>
+                <li>to jRat' guide</li>
+                <li>After dinner comes the reckoning.</li>
+            </ul>
+        </div>
+
+        <article class="container">
+                <section class="overlay hidden">
+                        <div class="loader">
+                            <div class="inner one"></div>
+                            <div class="inner two"></div>
+                            <div class="inner three"></div>
+                       </div>                   
+                </section>
+                <section class="frog-aside">
+                    <span class="titles"><i class="fas fa-arrow-down"></i> Drag <i class="fas fa-arrow-down"></i></span>
+                    <div class="food">
+                        <img src="./img/chiken.svg" class="draggable">
+                        <img src="./img/meat.svg" class="draggable">
+                        <img src="./img/fish.svg" class="draggable">
+                        <img src="./img/chiken.svg" class="draggable">
+                        <img src="./img/meat.svg" class="draggable">
+                        <img src="./img/fish.svg" class="draggable">
+                    </div>
+                </section>
+                <section class="frog">
+                    <p><i class="fas fa-arrow-alt-circle-down"></i>НАКОРМИ ЭТУ ПОДРУГУ<i class="fas fa-arrow-alt-circle-down"></i></p>
+                    <div class="eat-box droppable"></div>
+                    <div class="calories">
+                        <span>Calories counter:</span>
+                        <span class="calories-counter">0</span>
+                    </div>
+                </section>
+                <section class="frog-aside">
+                    <span class="titles"><i class="fas fa-arrow-down"></i> Click <i class="fas fa-arrow-down"></i></span>
+                    <div class="stomach">
+
+                    </div>
+                </section>
+        </article>
+    </main>
+
+<script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
+<script src="DragManager.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script>
+    var i = 0;
+    var apiJSON;
+
+    $(document).ready(function(){
+        setTimeout(function() {$('.main-preview').fadeOut() }, 400);
+    });
+
+    $.ajax({
+        url: 'http://api.openweathermap.org/data/2.5/weather?',
+        method: 'GET',
+        data:{
+                'APPID': 'dd3a57456109fea01267a4663a3184f7',
+                'q': 'Simferopol',
+                units: 'metric'
+            },
+        context: this,
+        dataType: "html",
+        timeout: 8000,
+        global: false
+    }).done(function(data) {
+        weatherJSON = JSON.parse(data);
+        console.log(weatherJSON);
+        var weatherSrc = 'http://openweathermap.org/img/w/' + weatherJSON.weather[0].icon + '.png';
+        $('.weather').prepend($('<img>', {
+            'class': 'weather-grad-icon',
+            alt: 'weather icon',
+            src: weatherSrc
+        }));
+        $('.weather-grad-count').text(weatherJSON.main.temp + '°C')
+    }).fail(function(){
+        var weatherSrc = './img/cancel.svg';
+        $('.weather').prepend($('<img>', {
+            'class': 'weather-grad-icon',
+            alt: 'weather icon',
+            src: weatherSrc
+        }));
+        $('.weather-grad-count').text(' - °C');
+    });
+
+    var data = new Date();
+    data = data + '';
+    data = data.split(' ');
+
+    $('.weather-cityName').text('Simferopol | ' + data[0] + ', ' + data[2]);
+    
+    $('.main-logo').click(function(){
+        $(this).animate({opacity: '0.3'}, 500);
+        $(this).animate({opacity: '1'}, 500)
+    })
+
+    function isRandom(){
+        return Math.floor(Math.random() * 30);
+    }
+
+    var eatCount = 0;
+    var foodPrice;
+
+    DragManager.onDragCancel = function(dragObject) {
+      dragObject.avatar.rollback();
+    };
+
+    function checkSum(arg1){
+        switch(arg1){
+            case 'meat.svg':
+                return foodPrice = 187;
+                break;
+            case 'chiken.svg':
+                return foodPrice = 165;
+                break;
+            case 'fish.svg':
+                return foodPrice = 96;
+                break;
+        }
+    }
+
+    var calories = 0;
+
+    function caloriesText(){
+        var summ = 0;
+        for (var n = 0; n < calories.length; n++){
+            summ += calories[n];
+        }
+        return summ;
+      }
+
+ 
+
+    DragManager.onDragEnd = function(dragObject, dropElem) {
+      dragObject.elem.style.display = 'none';
+      $('.stomach').append($('<div/>', {
+        'class': 'drug'
+      }));
+      $('.drug:eq('+ eatCount + ')').append(dragObject.elem).append($('<img>',{
+        'class': 'drug-cancel-icon',
+        src: './img/cancel.svg'
+      })).append($('<input>',{
+        'class': 'drug-input',
+        'value': '1'
+      }));
+
+      var x = $(dragObject.elem).attr('src').split('/')[2];
+      console.log('передали ' + x);
+
+      foodPrice = checkSum(x);
+      var currCallories = 1;
+
+      $('.drug-input:eq('+ eatCount + ')').focus(function(){
+        if ($(this).val().match(/^\d+$/)){
+          currCallories = +$(this).val();
+        }
+      }).change(function(event){
+        if (!$(this).val().match(/^\d+$/)){
+            $(this).css({'background-color': 'pink'});
+        }else{
+          $(this).css({'background-color': '#fff'}).blur();
+          var x = $(this).parent().children('img').attr('src').split('/')[2];
+          foodPrice = checkSum(x);
+          calories -= currCallories * foodPrice - foodPrice
+          calories += +$(this).val() * foodPrice - foodPrice;
+          $('.calories-counter').text(calories);
+        }});
+
+      $('.drug:eq('+ eatCount + ')').children().removeAttr('style').removeClass('draggable');
+     
+     
+      $('.drug:eq('+ eatCount +')').children('img').click(function(){
+        var x = $(this).attr('src').split('/')[2];
+        if (!$(this).parent().children('input').val().match(/^\d+$/)){
+            $(this).parent().children('input').css({'background-color': 'pink'});
+        }else{
+            console.log('приняли ' + x);
+            foodPrice = checkSum(x);
+            calories -= foodPrice * +$(this).parent().children('input').val();
+            $('.food').append($('<img/>',{
+                'class': 'draggable',
+                src: $(this).attr('src')
+            }))
+            $(this).parent().remove();
+            eatCount--;
+            $('.calories-counter').text(calories);
+        }
+      })
+      eatCount++;
+     
+      dropElem.classList.add('eat-box-on');
+      calories += foodPrice;
+      $('.calories-counter').text(calories);
+      setTimeout(function() {
+        dropElem.classList.remove('eat-box-on');
+      }, 200);
+    };
+
+</script>
+</body
+</html>

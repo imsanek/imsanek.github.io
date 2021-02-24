@@ -1,3 +1,4 @@
+
   .overlay {
     width: 90%;
     height: 60%;
@@ -184,6 +185,7 @@ body{
     margin: 0;
     padding: 0;
     display: flex;
+    font-family: 'Arial', sans-serif;
 }
 
 body a{
@@ -233,12 +235,6 @@ main{
     display: none;
 }
 
-.container {
-    padding-left: 60px; 
-    padding-right: 60px;
-    font-size: 18px;
-}
-
 .current-section{
     height: 45px;
     padding-right: 10px;
@@ -279,7 +275,6 @@ main{
 
 .navigation-ul{
     display: flex;
-    flex-grow: 4;
     padding: 0;
     min-width: 250px;
     flex-grow: 5;
@@ -297,36 +292,6 @@ main{
 .navigation-ul a:hover{
     cursor: pointer;
     border-bottom: 2px solid gold;
-}
-
-.search{
-    flex-grow: 1;
-}
-
-.search input{
-    flex-grow: 1;
-    border-radius: 10px;
-    padding: 3px 10px 3px;
-    height: 30px;
-    border: 1px solid gray;
-    outline: none;
-    font-size: 18px;
-    width: 100px;
-}
-
-.search button{
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border: 0;
-    margin: 0 10px 0 10px;
-}
-
-.search button:hover{
-    cursor: pointer;
-    color: #fff;
-    background-color: gold;
-    border-radius: 10px;
 }
 
 .navigation-social{
@@ -349,13 +314,6 @@ main{
     color: gold;
 }
 
-.content-box{
-    display: flex;
-    flex-wrap: wrap;
-    min-width: 600px;
-    flex-grow: 1;
-}
-
 .content{
     display: flex;
     flex-direction: column;
@@ -369,28 +327,16 @@ main{
     font-size: 14px;
 }
 
-.ilon{
-    font-size: 13px;
-    color: rgb(190, 189, 189);
-}
-
 .content-title{
     font-family: 'Oswald', sans-serif;
     font-size: 18px;
     border-bottom: 1px solid gold;
 }
 
-#octo{
-    width: 300px;
-    position: relative;
-    height: 300px;
-}
-
 .aside-content{
     display: flex; 
     flex-direction: column;
     align-items: center;
-    margin: 0 auto 0 auto;
 }
 
 .sidebar-container{
@@ -406,3 +352,107 @@ main{
     margin: auto;
     width: 200px;
 }
+
+.container {
+    padding-left: 60px; 
+    padding-right: 60px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-bottom: 30px;
+    max-height: 700px;
+}
+
+.food{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(119, 196, 240, 0.082);
+    border: 2px solid gainsboro;
+    width: 100px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    flex-grow: 1;
+}
+
+.frog{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.calories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stomach{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(119, 196, 240, 0.082);
+    border: 2px solid gainsboro;
+    width: 100px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    flex-grow: 1;
+}
+
+.eat-box {
+    width: 245px;
+    height: 245px;
+    background: url('./img/frog1.png') no-repeat;
+    background-size: 100%;
+    padding-bottom: 5px;
+    font-style: italic;
+    margin-left: 30px;
+  }
+  
+  .eat-box-on {
+    background: url('./img/frog2.png') no-repeat;
+    background-size: 100%;
+    margin-left: 30px;
+  }
+  
+  .draggable {
+    cursor: pointer;
+    margin: 5px;
+    width: 64px;
+  }
+
+  .drug{
+    cursor: pointer;
+    position: relative;
+    margin: 5px;
+    width: 64px;
+  }
+
+  .drug-cancel-icon{
+    position: absolute;
+    width: 17px;
+    top: 0;
+    left: 80%;
+  }
+
+  .drug-input{
+    display: flex;
+    margin: 5px auto;
+    width: 50%;
+    text-align: center;
+    align-self: center;
+  }
+
+  .frog-aside{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .titles{
+    align-self: center;
+  }

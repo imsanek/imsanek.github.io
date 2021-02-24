@@ -1,0 +1,286 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>А-ля магазин</title>
+    <link rel="stylesheet" href="./univer.css">
+    <link rel="script" href="./exmp.js">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+    <div class="main-preview">
+            <div class="loader">
+                <div class="inner one"></div>
+                <div class="inner two"></div>
+                <div class="inner three"></div>
+            </div> 
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-fixed">
+            <div class="sidebar-container"><img src="./img/g2a_logo.png" alt="g2a_logo" class="g2a-logo"></div>
+            <div class="sidebar-container"><img src="./img/logo.png" alt="main-logo" class="main-logo"></div>
+            <div class="sidebar-container">
+                <section class="weather">
+                    <span class="weather-grad-count"></span>
+                </section>
+                <section class="weather-cityName">Simferopol</section>   <span class="devlp">@kizmato</span>     
+            </div>
+            
+        </div>
+    </div>
+    <div class="main-line"><img src="./img/side.png"></div>
+    <main>
+        <header class="header">
+            <nav class="navigation">
+                    <ul class="navigation-ul">
+                        <li><a href="./index.html">Main</a></li>
+                        <li><a href="./search.html">Search of games</a></li>
+                        <li><a href="#">Admin</a></li>
+                        <li><a href="./jRat.html">How to jRat'</a></li>
+                        <li><a href="./univer.html">University?!?</a></li>
+                    </ul>
+                    <ul class="navigation-social">
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://www.vk.com/imsanek"><i class="fab fa-vk"></i></a></li>
+                        <li><a href="https://www.instagram.com/crypticcry/"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+            </nav>
+        </header>
+
+        <div class="current-section">
+            <ul>
+                <li>Yniver</li>
+                <li>All the world is made of faith, and trust, and pixie dust.</li>
+            </ul>
+        </div>
+
+        <article class="content-box">
+                <div class="container">
+                    <center>
+                        <h2>Метод секущих</h2>
+                    </center>
+                    <h3>2^x - 2*x^2 + 1</h3>
+                    <form class="log-manager">
+                        <input type="text" size ="2" maxlength="3" required id="x0" value="1"> 
+                            <p>:x0</p>
+                        <input type="text" size ="2" maxlength="2" required id="x1" value="2">
+                            <p>:x1</p>
+                        <input type="text" size ="8" maxlength="8" required id="e" value="0.001">
+                            <p>:погрешность Е</p>
+                        <input id="hordaSbm" type="button" class="miracle" value="Расчитать">
+                    </form>
+                    <div class="horda result"> </div>
+                    <canvas id="myChart"></canvas>
+                    </div>
+                <div class="container">
+                    <center>
+                            <h2>Полином Лагранжа</h2>
+                    </center>
+                    <h3>Интерполяция</h3>
+                    <form class="log-manager">
+                        <div class="x">
+                            <input type="text" size ="4" maxlength="5" required style="background-color: #90ee90" id="lagran_x" value="13.6">
+                            <input type="text" size ="2" maxlength="3" required name="x" value="1">
+                            <input type="text" size ="2" maxlength="3" required name="x" value="2"> 
+                            <input type="text" size ="2" maxlength="3" required name="x" value="3"> 
+                            <input type="text" size ="2" maxlength="3" required name="x" value="4"> 
+                            <input type="text" size ="2" maxlength="3" required name="x" value="5"> 
+                        </div>
+                        <p>:x</p>
+                
+                        <div class="y">
+                                <input type="text" size ="2" maxlength="3" required name="y" value="1.1">
+                                <input type="text" size ="2" maxlength="3" required name="y" value="1.4"> 
+                                <input type="text" size ="2" maxlength="3" required name="y" value="1.6"> 
+                                <input type="text" size ="2" maxlength="3" required name="y" value="1.7 "> 
+                                <input type="text" size ="2" maxlength="3" required name="y" value="1.9"> 
+                            </div>
+                            <p>:y</p>
+                        <input id="lagranSbm" type="button" class="miracle" value="Расчитать">
+                    </form>
+                    <div class="lagran result"> </div>
+                </div>
+        </article>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script language=javascript>
+
+            $(document).ready(function(){
+                setTimeout(function() {$('.main-preview').fadeOut() }, 400);
+            })
+
+            $.ajax({
+                url: 'http://api.openweathermap.org/data/2.5/weather?',
+                method: 'GET',
+                data:{
+                        'APPID': 'dd3a57456109fea01267a4663a3184f7',
+                        'q': 'Simferopol',
+                        units: 'metric'
+                    },
+                context: this,
+                dataType: "html",
+                timeout: 8000,
+                global: false
+            }).done(function(data) {
+                weatherJSON = JSON.parse(data);
+                console.log(weatherJSON);
+                var weatherSrc = 'http://openweathermap.org/img/w/' + weatherJSON.weather[0].icon + '.png';
+                $('.weather').prepend($('<img>', {
+                    'class': 'weather-grad-icon',
+                    alt: 'weather icon',
+                    src: weatherSrc
+                }));
+                $('.weather-grad-count').text(weatherJSON.main.temp + '°C')
+            }).fail(function(){
+                var weatherSrc = './img/cancel.svg';
+                $('.weather').prepend($('<img>', {
+                    'class': 'weather-grad-icon',
+                    alt: 'weather icon',
+                    src: weatherSrc
+                }));
+                $('.weather-grad-count').text(' - °C');
+            });
+
+            $('.main-logo').click(function(){
+                $(this).animate({opacity: '0.3'}, 500);
+                $(this).animate({opacity: '1'}, 500)
+            })
+
+            function isRandom(){
+                return Math.floor(Math.random() * 100);
+            }
+        
+            function f(x){
+                //return (2*Math.log(x)-1/x);
+                //return Math.pow(x, 3) - 18 * x - 83;
+                return Math.pow(2,x) - 2 * Math.pow(x,2)+ 1;
+            }
+        
+        
+            function bolshe(x0, x1){
+                if(x0 > 0){
+                    var x_next = x1;
+                    return x_next;
+                }
+                else{
+                    var x_next = x0;
+                    return x_next;
+                }
+            }
+
+                function bolshe1(x0, x1){
+                if(x0 > 0){
+                    var x_next = x0;
+                    return x_next;
+                }
+                else{
+                    var x_next = x1;
+                    return x_next;
+                }
+            }
+
+            var data = new Date();
+            data = data + '';
+            data = data.split(' ');
+            document.querySelector('.weather-cityName').innerHTML = 'Simferopol | ' + data[0] + ', ' + data[2];
+        
+            function horda(iter){
+       
+            var e = document.getElementById('e').value;
+            var x_i; 
+            var awe = bolshe(graphData.labels[iter], graphData.labels[iter+1]);
+            var x_i1 = bolshe1(graphData.labels[iter], graphData.labels[iter+1]);
+            do{
+                    x_i = x_i1;
+                    x_i1 = x_i - f(x_i) * (awe - x_i) / (f(awe) - f(x_i));
+            } while (Math.abs(x_i - x_i1) > e);
+                return x_i1;
+            }
+
+            var graphData = {
+                    label:[],
+                    labels: [],
+                    datasets: [{
+                        label: 'function',
+                        data: [ ]
+                    }]
+            }
+
+            var btn_horda = document.getElementById('hordaSbm');
+            btn_horda.onclick = function(){
+            
+            $('.horda').html('');
+            graphData.labels = [];
+            graphData.datasets[0].data = [];
+            
+            var end = Number($('#x1').val());
+            var start = Number($('#x0').val());
+            
+            for(start; start <= end; start += 0.5){
+                
+                graphData.datasets[0].data.push(f(start));
+                graphData.labels.push(start);
+                console.log(graphData.datasets[0].data[start]);
+            }
+
+            for(var i = 0; i <= graphData.labels.length; i+=0.5){
+                if(graphData.datasets[0].data[i] * graphData.datasets[0].data[i+1] < 0){
+                    console.log(graphData.datasets[0].data[i]+' | '+graphData.datasets[0].data[i+1]);
+                    $('.horda').append($('<p/>', {
+                        text: 'result: ' + horda(i)
+                    }))
+                }
+            }
+
+            var ctx = document.getElementById('myChart');
+                
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: graphData,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                max: 20,
+                                min: -20,
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            } 
+            var lagran_x = document.getElementById('lagran_x').value;
+        
+            function lagran(){
+                var x_var = document.getElementsByName('x');
+                var y_var = document.getElementsByName('y');
+                var lagrangePol = 0;
+                var lagran_result = '';
+                lagran_x = document.getElementById('lagran_x').value;
+                
+                for (var i = 0; i < y_var.length; i++)
+                {
+                        var basicsPol = 1;
+                        for (var j = 0; j < x_var.length; j++)
+                        {
+                            if (j != i)
+                            {
+                                basicsPol *= (lagran_x - x_var[j].value)/(x_var[i].value - x_var[j].value);
+                                console.log('bas' + j + ' = ' + basicsPol);
+                            }
+                        }
+                        console.log('/////////////////////////////////////');
+                        lagrangePol += basicsPol * y_var[i].value;
+                }
+                return lagrangePol;
+            }
+        
+            var btn_lagran = document.getElementById('lagranSbm');
+            btn_lagran.onclick = function(){
+                document.querySelector('.lagran').innerHTML = 'result: ' + lagran() + ', при х = ' + lagran_x;
+            }
+        </script>
+</body
+</html>
