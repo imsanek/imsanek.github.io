@@ -1,0 +1,126 @@
+[
+    {
+        "id": 1,
+        "title": "Baldur's Gate",
+        "platform": [
+            "MacOs",
+            "Windows",
+            "SteamOS"
+        ],
+        "rating": 8.7,
+        "votes": 100,
+        "price": 400
+    },
+    {
+        "id": 2,
+        "title": "Baldur's Gate II",
+        "platform": [
+            "MacOs",
+            "Windows",
+            "SteamOS"
+        ],
+        "rating": 8.4,
+        "votes": 90,
+        "price": 450
+    },
+    {
+        "id": 3,
+        "title": "Dota 2",
+        "platform": [
+            "MacOs",
+            "Windows",
+            "SteamOS"
+        ],
+        "rating": 7.4,
+        "votes": 170,
+        "price": 0
+    },
+    {
+        "id": 4,
+        "title": "Heroes 2",
+        "platform": [
+            "Windows"
+        ],
+        "rating": 8.4,
+        "votes": 1170,
+        "price": 500
+    },
+    {
+        "id": 5,
+        "title": "S.T.A.L.K.E.R - Чистое небо",
+        "platform": [
+            "Windows"
+        ],
+        "rating": 7.9,
+        "votes": 990,
+        "price": 1100
+    },
+    {
+        "id": 6,
+        "title": "Goat Simulator",
+        "platform": [
+            "MacOs",
+            "Windows",
+            "SteamOS"
+        ],
+        "rating": 6.4,
+        "votes": 435,
+        "price": 0
+    },
+    {
+        "id": 7,
+        "title": "Motorsport Manager",
+        "platform": [
+            "MacOs",
+            "Windows"
+        ],
+        "rating": 6.9,
+        "votes": 370,
+        "price": 2550
+    },
+    {
+        "id": 8,
+        "title": "Team Fortress 2",
+        "platform": [
+            "MacOs",
+            "Windows",
+            "SteamOS"
+        ],
+        "rating": 8.9,
+        "votes": 621,
+        "price": 0
+    },
+    {
+        "id": 9,
+        "title": "Terraria",
+        "platform": [
+            "MacOs",
+            "Windows",
+            "SteamOS"
+        ],
+        "rating": 7.0,
+        "votes": 351,
+        "price": 0
+    },
+    {
+        "id": 10,
+        "title": "Fallout 76",
+        "platform": [
+            "Windows"
+        ],
+        "rating": 5.9,
+        "votes": 779,
+        "price": 0
+    },
+    {
+        "id": 11,
+        "title": "XCOM: Enemy Unknown",
+        "platform": [
+            "MacOs",
+            "Windows"
+        ],
+        "rating": 7.8,
+        "votes": 671,
+        "price": 770
+    }
+]
