@@ -11,10 +11,6 @@
     </head>
     <body>
         <header class="header">
-            <div class="spec-offer">
-                При заказе номера на срок более 10 ночей предоставляются одни сутки проживания в подарок!
-                <span id="close">X</span>
-            </div>
             <div class="header-wrapper">
                 <div class="header-logo">
 
@@ -29,19 +25,18 @@
                     <span>Контакты</span>
                 </div>
                 <div class="header-nav">
+                    <span>Об отеле</span>
+                </div>
+                <div class="header-nav">
                     <span>г. Алушта, пер. Ревкомовский 3-A</span>
                     <span>+7-978-949-33-55</span>
                 </div>
+                <div class="social">
+                    <div class="social-img1"></div>
+                    <div class="social-img2"></div>
+                </div>
             </div>
         </header>
-        <div class="social">
-            <div class="social-img1">
-
-            </div>
-            <div class="social-img2">
-
-            </div>
-        </div>
         <div class="header-video">
             <video class="video" loop="loop" autoplay="" muted="">
                 <source src="./video/clouds.mp4" type="video/mp4" />
@@ -51,7 +46,7 @@
             <div class="header-cover"></div>
             <div class="header-text">
                 <div class="header-text-name">
-                    <span>Бутик Отель</span>
+                    <span>Бутик-отель</span>
                 </div>
                 <div class="header-text-name">
                     <span>"История"</span>
@@ -60,7 +55,7 @@
                     <img src="./img/logo.png" alt="logo">
                 </div>
                 <div class="header-text-cit">
-                    Особенное отношение к каждому гостю
+                    Уделим внимание каждому гостю
                 </div>
                 <div class="calendar">
                     <div class="calendar-first">
@@ -99,10 +94,19 @@
                         Найти номер
                     </div>
                 </div>
+                <div class="weather">
+                    <div id="inf_hmn_pl" hidden></div>
+                    <div class="area"></div>
+                    <div class="weather-case">
+                        <div class="day">Температура днём: </div>
+                        <div class="night">Температура ночью: </div>
+                        <div class="water">Температура воды: </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="wrapper">
-            <div class="content-text"><span>БЕСПЛАТНО ВСТРЕЧАЕМ И ПРОВОЖАЕМ С ВОКЗАЛОВ ГОРОДА СИМФЕРОПОЛЬ НА СТОБСТВЕННОМ АВТОМОБИЛЕ БИЗНЕС-КЛАССА*</span>
+            <div class="content-text"><span>БЕСПЛАТНО ВСТРЕЧАЕМ И ПРОВОЖАЕМ С ВОКЗАЛОВ ГОРОДА СИМФЕРОПОЛЬ НА СОБСТВЕННОМ АВТОМОБИЛЕ БИЗНЕС-КЛАССА*</span>
             <div class="auto" id="slider_bl">
                 <div class="wrapper">
                     <input checked type=radio name="slider" id="slide1" />
@@ -114,12 +118,12 @@
                         <article>
                           <div class="info top-left">
                             <h3>Довезём с комфортом</h3></div>
-                          <img src="./img/auto3.jpg" />
+                          <img src="./img/auto2.jpg" />
                         </article>
                         <article>
                           <div class="info bottom-right">
                             <h3>Автомобиль бизнес-класса</h3></div>
-                          <img src="./img/auto2.jpg" />
+                          <img src="./img/auto3.jpg" />
                         </article>
                         <article>
                           <div class="info bottom-left">
@@ -139,17 +143,6 @@
                 <span>*в случаях не возможности предоставления автомобиля при одновременном заезде-выезде двух и более номеров предоставляем компенсацию</span>
                 <span>( стоимость  оговаривается по предварительной договорённости )</span>
                 </div>
-        </div>
-        <div class="wrapper">
-            <div class="content-text"><span>ПРАВИЛА РАЗМЕЩЕНИЯ</span></div>
-            <div class="rules">
-                <ul>
-                    <li><b>Размещение детей:</b> в возрасте свыше пяти лет</li>
-                    <li><b>Размещение</b> в отель осуществляется при наличии паспорта, для детей - свидетельство о рождении</li>
-                    <li><b>Расчетное время:</b> Заезд - 14:00 | Выезд - 12:00</li>
-                    <li><b>Запрещено</b> распитие алкогольных напитков в номерах</li>
-                    <li><b>Курение</b> разрешено только в предназначенных для этого местах</li>
-                </ul>
         </div>
         <div class="wrapper">
             <div class="content-text">НОМЕРА</div>
@@ -196,6 +189,13 @@
                         Джаз
                     </span>
                 </div>
+                
+                <div class="offer-box">
+                    <img src="https://hotel-istoria.ru/img/room/big_vSJvDC.JPG" alt="">
+                    <span>
+                        Прованс
+                    </span>
+                </div>
                 <div class="offer-box">
                     <img src="https://hotel-istoria.ru/img/room/big_p6473w.JPG" alt="Дача «Лаванда»">
                     <span>
@@ -208,11 +208,21 @@
                         Дача «Розмарин»
                     </span>
                 </div>
-                <div class="offer-box">
-                    <img src="https://hotel-istoria.ru/img/room/big_vSJvDC.JPG" alt="">
-                    <span>
-                        Прованс
-                    </span>
+            </div>
+        </div>
+        <div class="wrapper">
+            <label for="button" class="content-text"><i class="fa fa-arrow-down" aria-hidden="true"></i> ПРАВИЛА РАЗМЕЩЕНИЯ <i class="fa fa-arrow-down" aria-hidden="true"></i></label>
+            <input type="checkbox" id="button">
+            <div class="xpandable-block">
+                <div class="rules">
+                    <ul>
+                        <li><b>Размещение детей:</b> в возрасте свыше пяти лет</li>
+                        <li><b>Размещение</b> в отель осуществляется при наличии паспорта, для детей - свидетельство о рождении</li>
+                        <li><b>Расчетное время:</b> Заезд - 14:00 | Выезд - 12:00</li>
+                        <li><b>Запрещено</b> распитие алкогольных напитков в номерах</li>
+                        <li><b>Курение</b> разрешено только в предназначенных для этого местах</li>
+                    </ul>
+                    <a href="./img/rules.pdf" target="_blank"><i class="fa fa-hand-pointer-o" aria-hidden="true"></i> ПРАВИЛА БРОНИРОВАНИЯ <i class="fa fa-hand-pointer-o" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -221,9 +231,9 @@
                 <div class="services-text-center">
                     <div class="services-text">УСЛУГИ ВХОДЯЩИЕ В СТОИМОСТЬ НОМЕРА</div>
                     <ul>
-                        <li>Завтрак для двоих человек</li>
+                        <li>Завтрак</li>
                         <li>Уборка номера</li>
-                        <li>Смена белья (один раз в 5 суток или по требованию)</li>
+                        <li>Смена белья <br> (один раз в 5 суток)</li>
                         <li>Бесплатный Wi-Fi</li>
                         <li>Кабельное TV</li>
                         <li>Чайный стол в холле</li>
@@ -235,7 +245,7 @@
                     <div class="services-text">ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</div>
                     <ul>
                         <li>Индивидуальная стирка</li>
-                        <li>Транспортные услуги, трансфер</li>
+                        <li>Транспортные услуги</li>
                         <li>Организация экскурсий</li>
                     </ul>
                 </div>
@@ -251,7 +261,7 @@
                     <span><i class="fa fa-umbrella" aria-hidden="true"></i> <b>Пляж:</b> </span>
                     <span>через центральную аллею 300 метров</span>
                     <span><i class="fa fa-map-signs" aria-hidden="true"></i> <b>Парковка:</b> </span>
-                    <span>бесплатная неохраняемая</span>
+                    <span>парковочные места рядом с отелем</span>
                     <span><i class="fa fa-bath" aria-hidden="true"></i> <b>Номерной фонд:</b> </span>
                     <span>10 номеров</span>
                     <span><i class="fa fa-globe" aria-hidden="true"></i> <b>Своя территория:</b> </span>
@@ -266,7 +276,7 @@
             </div>
         </div>
         <div class="wrapper">
-            <div class="content-text">БУТИК ОТЕЛЬ «ИСТОРИЯ» НА КАРТЕ</div>
+            <div class="content-text">БУТИК-ОТЕЛЬ «ИСТОРИЯ» НА КАРТЕ</div>
             <div class="map">
                 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A261db761f322545b01b6d801371ffff3d5c34bb09abc1d5a81a66ca7085c0f75&amp;source=constructor" width="1100" height="650" frameborder="0"></iframe>
             </div>
@@ -297,6 +307,7 @@
                     <li>С уважением, Новикова  Любовь Владимировна.</li>
                 </ul>
             </div>
+            
         </div>
         <script>
             function height(){
@@ -307,12 +318,15 @@
                 $( window ).resize(function() {
                     height();
                 });
-
-                $('#close').click(function(){
-                    $('.spec-offer').remove();
-                });
+                
+                var data = $('.mhmb11pn').text().split(' ');
+                $('.area').text($('.mhmb9pnu').text().split('/')[0]);
+                $('.day').text($('.day').text() + data[1].split('н')[0] + '°C');
+                $('.night').text($('.night').text() + data[2].split('в')[0] + '°C');
+                $('.water').text($('.water').text() + data[3] + '°C');
             });
         </script>
+        <script type="text/javascript" src="http://informer.hmn.ru/types/info.js?value=33959&type=11_8&wt=1&is=1"></script>
     </body>
     
 </html>
