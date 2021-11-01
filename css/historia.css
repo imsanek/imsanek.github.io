@@ -270,7 +270,6 @@ li {
   font-size: 30px;
   text-align: center;
   display: block;
-  letter-spacing: 3px;
   padding: 20px;
 }
 .content-text__small{
@@ -516,7 +515,7 @@ label {
   border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-.span-ul span:nth-child(2n-1) {
+.span-ul .tag{
   counter-reset: index;  
   counter-increment: index; 
   display: flex;
@@ -545,6 +544,6 @@ label {
 }
 .map-pull-text ul li{
   font-family: 'TypeFont', cursive;
-    font-size: 25px;
-    letter-spacing: 3px;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
