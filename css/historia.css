@@ -517,26 +517,19 @@ label {
 
 
 .span-ul .tag{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+  display: block;
   align-items: center;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 1.3rem;
-  text-align: right;
+  text-align: left;
   font-weight: bold;
   min-width: 50px;
-  -ms-flex-item-align: start;
   align-self: flex-start;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(aquamarine), to(orangered));
-  background-image: -o-linear-gradient(top, aquamarine, orangered);
   background-image: linear-gradient(to bottom, aquamarine, orangered);
-  background-attachment: fixed;
+  background-image: -webkit-linear-gradient(to bottom, aquamarine, orangered);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-attachment: fixed;
   width: 100%;
 }
 
