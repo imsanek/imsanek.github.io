@@ -398,10 +398,10 @@ li {
   letter-spacing: 3px;
   width: 320px;
 }
-.map-list span:nth-child(2n){
+.map-list div:nth-child(2n){
   padding-bottom: 6px;
   margin-bottom: 6px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .map-img{
   background-image: url('../img/map.jpg');
@@ -531,19 +531,18 @@ label {
   background-attachment: fixed;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  width: 100%;
 }
 
 
 /* Element separation */
-.span-ul span + span{
-  border-top: 1px solid rgba(255,255,255,0.2);
-}
 
 .map-pull{
   display: flex;
 }
-.map-pull-text ul li{
+.map-pull-text{
   font-family: 'TypeFont', cursive;
     font-size: 20px;
     letter-spacing: 2px;
+    width: 100%;
 }
