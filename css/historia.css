@@ -533,6 +533,10 @@ label {
   width: 100%;
 }
 
+.span-ul .tag i{
+  display: inline-block;
+}
+
 
 /* Element separation */
 
