@@ -516,32 +516,7 @@ label {
 }
 
 
-
-
-.text-ulx{
-  counter-reset: index;  
-  counter-increment: index; 
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  font-size: 1.3rem;
-  text-align: right;
-  font-weight: bold;
-  min-width: 50px;
-  font-variant-numeric: tabular-nums;
-  align-self: flex-start;
-  background-image: linear-gradient(to bottom, aquamarine, orangered);
-  background-attachment: fixed;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  width: 100%;
-}
-
-
-
 .span-ul .tag{
-  counter-reset: index;  
-  counter-increment: index; 
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -549,8 +524,8 @@ label {
   text-align: right;
   font-weight: bold;
   min-width: 50px;
-  font-variant-numeric: tabular-nums;
   align-self: flex-start;
+  background-image: -webkit-linear-gradient(to bottom, aquamarine, orangered);
   background-image: linear-gradient(to bottom, aquamarine, orangered);
   background-attachment: fixed;
   -webkit-background-clip: text;
