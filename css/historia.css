@@ -517,15 +517,22 @@ label {
 
 
 .span-ul .tag{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 1.3rem;
   text-align: right;
   font-weight: bold;
   min-width: 50px;
+  -ms-flex-item-align: start;
   align-self: flex-start;
-  background-image: -webkit-linear-gradient(to bottom, aquamarine, orangered);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(aquamarine), to(orangered));
+  background-image: -o-linear-gradient(top, aquamarine, orangered);
   background-image: linear-gradient(to bottom, aquamarine, orangered);
   background-attachment: fixed;
   -webkit-background-clip: text;
