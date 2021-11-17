@@ -11,7 +11,6 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    scroll-behavior: smooth;
   }
 }
 
@@ -19,7 +18,6 @@ body{
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth;
 }
 
 li {
@@ -262,6 +260,24 @@ li {
   cursor: pointer;
 }
 
+
+.offer-text{
+  display: flex;
+  width: 700px;
+  flex-wrap: wrap;
+}
+.offer-text span{
+  margin: 9px;
+  border-radius: 10px 0;
+  width: 135px;
+  border: 1px solid black;
+  box-shadow: 0 0 13px #a07658;
+  padding: 10px;
+}
+.offer-text span i{
+  color: red;
+}
+
 .offers{
   display: flex;
   justify-content: space-around;
@@ -270,9 +286,10 @@ li {
 .content-text{
   font-family: 'TypeFont', cursive;
   font-size: 30px;
+  width: 700px;
   text-align: center;
   display: block;
-  padding: 20px;
+  padding: 20px 0 20px 0;;
 }
 .content-text__small{
   font-family: 'TypeFont', cursive;
@@ -281,50 +298,17 @@ li {
   display: flex;
   flex-direction: column;
 }
-.offer-box:nth-child(2n+1){
-  background-color: #d2c1b5;
-  height: 250px;
-  width: 23%;
-  margin-bottom: 20px;
-}
-.offer-box:nth-child(2n){
-  background-color: black;
-  height: 250px;
-  width: 23%;
-}
-.offer-box:last-of-type{
-  width: 45%;
-}
-.offer-box:nth-last-of-type(2){
-  width: 45%;
-}
 .offer-box{
-  position: relative;
-  box-shadow: 0 0 10px black;
-  border: 4px solid black;
-  transition: transform 0.8s;
+  display: flex;
 }
-.offer-box:hover{
-  cursor: pointer;
-  transform: scale(1.05);
-}
-.offer-box img{
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-.offer-box span{
+
+.contacts{
   font-family: 'TypeFont', cursive;
-    font-size: 25px;
-    position: absolute;
-    bottom: 40%;
-    left: 0;
-    text-align: center;
-    padding: 7px 0;
-    color: whitesmoke;
-    background: #1a1a1dad;
-    width: 100%;
-    letter-spacing: 3px;
+  font-size: 25px;
+  text-align: center;
+  width: 300px;
+  border: 1px solid;
+  margin-left: 40px;
 }
 
 .rules{
@@ -427,6 +411,7 @@ li {
 .weather{
   font-family: 'TypeFont', cursive;
   font-size: 20px;
+  margin-top: 50px;
   color: whitesmoke;
   display: flex;
   flex-direction: column;
@@ -442,8 +427,12 @@ li {
   margin: 15px;
 }
 
+.header ~ .wrapper:first-child{
+  margin-top: 120px;
+}
+
 .auto{
-  margin: 0 auto;
+  width: 700px;
   box-shadow: 0 0 10px black;
   border-radius: 13px;
 }
@@ -466,7 +455,6 @@ label {
   order: 1;
   font-size: 18px;
   cursor: pointer;
-  border: 2px solid black;
   margin: 15px auto;
   width: 700px;
   box-shadow: 0px 0px 32px #a07658;
@@ -477,7 +465,6 @@ label {
 
 .inner img{
   object-fit: cover;
-  height: 675px;
 }
 
 .text-ul {

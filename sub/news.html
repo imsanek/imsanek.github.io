@@ -22,13 +22,13 @@
                 <div class="header-nav">
                     <span>Об отеле</span>
                 </div>
-                <div class="header-nav" id="offers-nav">
+                <div class="header-nav">
                     <span>Номера</span>
                 </div>
                 <div class="header-nav">
                     <span>Афиша</span>
                 </div>
-                <div class="header-nav" id="contacts-nav">
+                <div class="header-nav">
                     <span>Контакты</span>
                 </div>
                 <div class="header-nav">
@@ -139,7 +139,7 @@
                 <span>( стоимость  оговаривается по предварительной договорённости )</span>
                 </div>
         </div>
-        <div class="wrapper" id="offers">
+        <div class="wrapper">
             <div class="content-text">НОМЕРА</div>
             <div class="offers">
                 <div class="offer-box">
@@ -307,7 +307,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer" id="contacts">
+        <div class="footer">
             <div class="footer-text__left">
                 <ul>
                     <li>298500, Россия,</li>
@@ -349,25 +349,6 @@
                 $('.day').text($('.day').text() + data[1].split('н')[0] + '°C');
                 $('.night').text($('.night').text() + data[2].split('в')[0] + '°C');
                 $('.water').text($('.water').text() + data[3] + '°C');
-
-
-                
-                $('#contacts-nav').click(function(){
-                    $('html, body').animate({
-                        scrollTop: $('#contacts').offset().top
-                    }, {
-                        duration: 370,   // по умолчанию «400» 
-                        easing: "linear" // по умолчанию «swing» 
-                    });
-                });
-                $('#offers-nav').click(function(){
-                    $('html, body').animate({
-                        scrollTop: $('#offers').offset().top
-                    }, {
-                        duration: 370,   // по умолчанию «400» 
-                        easing: "linear" // по умолчанию «swing» 
-                    });
-                });
             });
         </script>
         <script type="text/javascript" src="./js/weather.js"></script>
