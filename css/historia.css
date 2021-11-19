@@ -22,6 +22,15 @@ body{
   scroll-behavior: smooth;
 }
 
+.fa{
+  text-rendering: optimizeLegibility;
+}
+
+a{
+  text-decoration: none;
+  color: #d2c1b5;
+}
+
 li {
   list-style-type: none; 
  }
@@ -314,6 +323,19 @@ li {
   width: 100%;
 }
 .offer-box span{
+  font-family: 'TypeFont', cursive;
+    font-size: 25px;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    text-align: center;
+    padding: 7px 0;
+    color: whitesmoke;
+    background: #1a1a1dad;
+    width: 100%;
+    letter-spacing: 3px;
+}
+.offer-box span:first-of-type{
   font-family: 'TypeFont', cursive;
     font-size: 25px;
     position: absolute;
