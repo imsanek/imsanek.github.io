@@ -322,31 +322,34 @@ li {
   object-fit: cover;
   width: 100%;
 }
-.offer-box span{
+.offer-box span {
   font-family: 'TypeFont', cursive;
-    font-size: 25px;
-    position: absolute;
-    bottom: 10%;
-    left: 0;
-    text-align: center;
-    padding: 7px 0;
-    color: whitesmoke;
-    background: #1a1a1dad;
-    width: 100%;
-    letter-spacing: 3px;
+  font-size: 17px;
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  text-align: right;
+  padding: 5px 0;
+  color: whitesmoke;
+  background: #1a1a1dad;
+  width: 100%;
+  letter-spacing: 3px;
 }
 .offer-box span:first-of-type{
   font-family: 'TypeFont', cursive;
-    font-size: 25px;
-    position: absolute;
-    bottom: 40%;
-    left: 0;
-    text-align: center;
-    padding: 7px 0;
-    color: whitesmoke;
-    background: #1a1a1dad;
-    width: 100%;
-    letter-spacing: 3px;
+  font-size: 25px;
+  position: absolute;
+  bottom: 40%;
+  left: 0;
+  text-align: center;
+  padding: 7px 0;
+  color: whitesmoke;
+  background: #1a1a1dad;
+  width: 100%;
+  letter-spacing: 3px;
+}
+.fa-user:last-child{
+  font-size: 10px;
 }
 
 .rules{
@@ -354,12 +357,12 @@ li {
   font-size: 25px;
 }
 .rules a{
-  width: 314px;
+  width: 590px;
   display: block;
   margin: 0 auto;
   cursor: pointer;
   border: 2px solid black;
-  margin: 15px auto;
+  margin: 27px auto;
   padding: 5px;
   text-decoration:none;
   color: black;
@@ -559,6 +562,7 @@ label {
 
 .span-ul .tag i{
   display: inline-block;
+  font-weight: 900;
 }
 
 
