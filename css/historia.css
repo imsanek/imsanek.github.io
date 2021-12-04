@@ -174,13 +174,11 @@ li {
   display: flex;
   border: 2px solid whitesmoke;
   width: 20%;
-  cursor: pointer;
 }
 .calendar-last{
   border: 2px solid whitesmoke;
   width: 20%;
   display: flex;
-  cursor: pointer;
 }
 .calendar-text{
   font-family: 'TypeFont', cursive;
@@ -213,6 +211,24 @@ li {
   height: 100%;
   color: whitesmoke;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  cursor: pointer;
+}
+.calendar-block::placeholder{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  height: 100%;
+  color: whitesmoke;
 }
 .calendar-guests{
   border: 2px solid whitesmoke;
@@ -229,7 +245,20 @@ li {
   letter-spacing: 1px;
   height: 100%;
   color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  cursor: pointer;
 }
+option{
+  background-color: rgba(0, 0, 0, 0.527);
+}
+
 .calendar-search{
   border: 2px solid whitesmoke;
   width: 20%;
@@ -237,7 +266,6 @@ li {
   font-size: 20px;
   padding-top: 10px;
   text-align: center;
-   
   letter-spacing: 1px;
   color: whitesmoke;
   cursor: pointer;
@@ -245,6 +273,7 @@ li {
 .calendar-search:hover{
   background-color: rgba(245, 245, 245, 0.205);
 }
+
 
 .social{
   width: 100px;
@@ -577,3 +606,4 @@ label {
     letter-spacing: 2px;
     width: 100%;
 }
+

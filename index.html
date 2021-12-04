@@ -5,8 +5,8 @@
         <meta name="keywords" content="Бутик отель История в Алуште">
         <meta name="format-detection" content="telephone=no">
         <title>Бутик отель История в Алуште</title>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
         <link href="css/historia.css" rel="stylesheet" type="text/css">
+    
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     </head>
@@ -66,34 +66,34 @@
                         <div class="calendar-text">
                             Заезд
                         </div>
-                        <div class="calendar-block">
-                            Выберите дату
-                        </div>
+                        <input type="text" class="calendar-block" id="datepicker1" placeholder="Выберите дату">
                     </div>
                     <div class="calendar-last">
                         <div class="calendar-text">
                             Выезд
                         </div>
-                        <div class="calendar-block">
-                            Выберите дату
-                        </div>
+                        <input type="text" class="calendar-block" id="datepicker2" placeholder="Выберите дату">
                     </div>
                     <div class="calendar-guests">
                         <div class="calendar-text-g">
                             Взрослых
                         </div>
-                        <div class="calendar-guests-text">
-                            1
-                        </div>
+                        <select class="calendar-guests-text" id="guests"> 
+                            <option>1</option> 
+                            <option>2</option> 
+                            <option>3</option> 
+                            <option>4</option> 
+                        </select>
                     </div>
                     <div class="calendar-guests">
                         <div class="calendar-text-g">
-                            Детей
+                            Ребёнок
                         </div>
-                        <div class="calendar-guests-text">
-                            0
-                        </div>
-                    </div>
+                        <select class="calendar-guests-text" id="children"> 
+                            <option>Нет</option> 
+                            <option>Да</option>  
+                        </select>                   
+                   </div>
                     <div class="calendar-search">
                         Найти номер
                     </div>
@@ -199,7 +199,7 @@
                     <span>
                         Прованс
                     </span>
-                    <span><i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> + <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i></i> + <i class="fa fa-user" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> + <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i></i></i></span>
                 </div>
                 <div class="offer-box">
                     <img src="https://hotel-istoria.ru/img/room/big_aVkH5.JPG" alt="Дача «Лаванда»">
@@ -268,7 +268,7 @@
                     
                 </div>
                 <div class="map-list span-ul">
-                    <div class="tag"><i class="fa fa-user" aria-hidden="true"></i><i class="fa fa-umbrella" aria-hidden="true"></i> <b>Пляж:</b> </div>
+                    <div class="tag"><i class="fa fa-umbrella" aria-hidden="true"></i> <b>Пляж:</b> </div>
                     <div>через центральную аллею 300 метров</div>
                     <div class="tag"><i class="fa fa-map-signs" aria-hidden="true"></i> <b>Парковка:</b> </div>
                     <div>парковочные места рядом с отелем</div>
@@ -346,6 +346,9 @@
             
         </div>
         
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
             function height(){
                 $('.header-video ').height($('.header-video video').height());
@@ -355,14 +358,56 @@
                 $( window ).resize(function() {
                     height();
                 });
-                
+
+                $('.calendar-search').on('click', function(){
+                    
+                var date1 = $("#datepicker1").val().split('.').reverse().join('-');
+                var date2 = $("#datepicker2").val().split('.').reverse().join('-');
+                       
+                    window.location.href = "./sub/search.html?date1="+ date1 +"&date2="+ date2 + "&guests=" + $('#guests').val() +"&children=" + $('#children').val();
+                    console.log('done')
+                });
+
                 var data = $('.mhmb11pn').text().split(' ');
                 $('.area').text($('.mhmb9pnu').text().split('/')[0]);
                 $('.day').text($('.day').text() + data[1].split('н')[0] + '°C');
                 $('.night').text($('.night').text() + data[2].split('в')[0] + '°C');
                 $('.water').text($('.water').text() + data[3] + '°C');
 
-
+                /* DATA PICKER START*/
+                $.datepicker.regional['ru'] = {
+                    closeText: 'Закрыть',
+                    prevText: 'Предыдущий',
+                    nextText: 'Следующий',
+                    currentText: 'Сегодня',
+                    monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                    monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+                    dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+                    dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+                    dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+                    weekHeader: 'Не',
+                    dateFormat: 'dd.mm.yy',
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: ''
+                };
+                $.datepicker.setDefaults($.datepicker.regional['ru']);
+                $(function(){
+                    $("#datepicker1").datepicker();
+                    $("#datepicker2").datepicker();
+                    var date = new Date();
+                    date.setDate(date.getDate() + 1);
+                
+                    $("#datepicker1").datepicker({
+                        minDate: date
+                    });
+                    $("#datepicker2").datepicker({
+                        minDate: date
+                    });
+                });
+                
+                /* DATA PICKER END*/
                 
                 $('#contacts-nav').click(function(){
                     $('html, body').animate({
