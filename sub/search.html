@@ -200,7 +200,7 @@
                     }));
                 }else{
                     $('.number-price:eq('+itter+')').append($('<span/>', {
-                        'text': daysCounter * apiJSON[id].price + ' руб.' 
+                        'text': (daysCounter-1) * apiJSON[id].price + ' руб.' 
                     }));
                 }
                 $('.number-price:eq('+itter+')').append($('<button/>', {
@@ -363,7 +363,7 @@
                     dataType: 'html',          
                     success: function(data){   
                         apiJSON = JSON.parse(data);
-                        console.log(apiJSON);
+                        console.log(apiJSON[1].length);
                         var result = [1,2,3,4,5,6,7,8,9,10];
                         for(var i = 0; i < apiJSON.length; i++){
                             findDates(apiJSON, i);
