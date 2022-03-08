@@ -1,0 +1,144 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>А-ля магазин</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+    <div class="main-preview">
+            <div class="loader">
+                <div class="inner one"></div>
+                <div class="inner two"></div>
+                <div class="inner three"></div>
+            </div> 
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-fixed">
+            <div class="sidebar-container">
+                <div class="logo-name">
+                    HotelBill
+                </div>
+                <div class="logo-text">
+                    Nemo patriam, quia magna est, amat, sed quia sus.
+                    <!--Никто не любит свое отечество за то, что оно большое, а за то, что оно свое.-->
+                </div>
+            </div>
+            <div class="sidebar-container">
+                <h2>Поиск лучших предложений</h2>
+                <span class="future">скоро откроется для всех посетителей!</span>
+                <div class="book">
+                    <div class="book-wrap">
+                        <div class="book-content">
+                            <div class="book-geo">
+                                <input type="text" placeholder="Страна, город">
+                            </div>
+                        </div>
+                        <div class="book-content date">
+                            <div class="book-date">
+                                <span>Дата заезда</span>
+                                <input type="text" placeholder="Дата заезда">
+                            </div>
+                            <div class="book-date">
+                                <span>Дата выезда</span>
+                                <input type="text" placeholder="Дата выезда">
+                            </div>
+                        </div>
+                        <div class="book-content guest">
+                            <div class="book-guest">
+                                <span>Взрослых</span>
+                                <input type="text" value="1" placeholder="Взрослых">
+                            </div>
+                            <div class="book-guest">
+                                <span>Детей</span>
+                                <input type="text" value="0" placeholder="Детей">
+                            </div>
+                        </div>
+                        <div class="book-button">
+                            <span>Найти</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-container">
+                <span>+7 (989) 124-50-50 (Россия)</span>
+                <span>+7 (989) 212-50-50 (Россия)</span>
+                <br>
+                <span>© 2022 | kizmato</span>
+                <span>All Rights Reserved</span>
+            </div>
+            
+        </div>
+    </div>
+    <div class="main-line"><img src="./img/side.png"></div>
+    <main>
+        <header class="header">
+            <nav class="navigation">
+                    <ul class="navigation-ul">
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Отели</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                <!--<form class="navigation search">
+                    <input type="text" name="search" placeholder="Search...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>-->
+                    <ul class="navigation-social">
+                        <li><i class="fab fa-facebook"></i></li>
+                        <li><i class="fab fa-vk"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                    </ul>
+            </nav>
+        </header>
+
+        <div class="current-section">
+            <ul>
+                <li>Главная</li>
+                <li>Welcome to the club, buddy!</li>
+            </ul>
+        </div>
+
+        <article class="container content-box">
+                <div class="overlay">
+                        <div class="loader">
+                            <div class="inner one"></div>
+                            <div class="inner two"></div>
+                            <div class="inner three"></div>
+                       </div>                      
+                </div>
+                <section>
+                    <span class="content-title">HotelBill позволит легко найти идеальный отель!</span>
+                    <div class="content">
+                        <ul class="text-ul">
+                            <li>Просто напишите город, куда хотите отправиться.</li>
+                            <li>В два клика выберите даты поездки и доверьте нашему сервису подобрать идеальные аппартаменты.</li>
+                            <li>Невероятное количество гостиниц и номеров собраны в одном месте специально для Вас!</li>
+                        </ul>                       
+                    </div>
+                </section>
+                <aside class="aside-content">
+                        <img id="crimea" src="./img/crimea1.png" alt="crimea">
+                        <span class="content-title">Republic of Crimea</span>
+                </aside>
+        </article>
+    </main>
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script>
+    var i = 0;
+    var apiJSON;
+
+    $(document).ready(function(){
+        setTimeout(function() {$('.main-preview').fadeOut() }, 400);
+    });
+
+    
+    function isRandom(){
+        return Math.floor(Math.random() * 30);
+    }
+    $('.overlay').hide();
+</script>
+</body>
+</html>
