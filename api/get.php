@@ -11,17 +11,20 @@
         exit();
     }
 
-    $databaseJson = file_get_contents('hotel.json');
+    $databaseJson = file_get_contents('database.json');
     $database = json_decode($databaseJson);
 
     $result = false;
-    
-    $result = $database[$id-1];
+    while($result = array_pop($database)) {
+        if (intval($result->id) === $id) {
+            break;
+        }
+    }
 
     if (!$result) {
         header('HTTP/1.1 404 Not Found');
         echo json_encode([
-            'status' => 'not found'
+            'status' => 'game not found'
         ]);
 
         exit();

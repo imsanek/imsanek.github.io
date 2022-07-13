@@ -1,9 +1,10 @@
 <?php
     $id = intval($_POST['id']);
+    $rating = intval($_POST['rating']);
 
     header('Content-type: application/json');
 
-    if (!$id) {
+    if (!$id || !$rating || ($rating > 10 || $rating < 0)) {
         header('HTTP/1.1 404 Not Found');
         echo json_encode([
             'status' => 'incorrect request'
@@ -14,16 +15,18 @@
     $databaseJson = file_get_contents('database.json');
     $database = json_decode($databaseJson);
 
-    $result = [];
     $found = false;
 
     for ($i = 0; $i < count($database); $i++) {
-        if (intval($database[$i]->id) === $id) {
+        if ($id === intval($database[$i]->id)) {
             $found = true;
-            continue;
-        }
+            $votes_sum = $database[$i]->rating * $database[$i]->votes;
+            $votes_sum += $rating;
 
-        array_push($result, $database[$i]);
+            $database[$i]->votes++;
+
+            $database[$i]->rating = $votes_sum / $database[$i]->votes;
+        }
     }
 
     if (!$found) {
@@ -35,7 +38,7 @@
         exit();
     }
 
-    file_put_contents('database.json', json_encode($result));
+    file_put_contents('database.json', json_encode($database));
 
     echo json_encode([
         'status' => 'ok'

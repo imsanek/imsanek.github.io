@@ -1,9 +1,12 @@
 <?php
     $id = intval($_POST['id']);
+    $title = $_POST['title'];
+    $platformJSON = $_POST['platform'];
+    $price = intval($_POST['price']);
 
     header('Content-type: application/json');
 
-    if (!$id) {
+    if (!$id || !($title || $platformJSON || $price)) {
         header('HTTP/1.1 404 Not Found');
         echo json_encode([
             'status' => 'incorrect request'
@@ -14,16 +17,22 @@
     $databaseJson = file_get_contents('database.json');
     $database = json_decode($databaseJson);
 
-    $result = [];
     $found = false;
 
     for ($i = 0; $i < count($database); $i++) {
-        if (intval($database[$i]->id) === $id) {
+        if ($id === intval($database[$i]->id)) {
             $found = true;
-            continue;
+            if ($title) {
+                $database[$i]->title = $title;
+            }
+            if ($platformJSON) {
+                $platform = json_decode($platformJSON);
+                $database[$i]->platform = $platform;
+            }
+            if ($price) {
+                $database[$i]->price = $price;
+            }
         }
-
-        array_push($result, $database[$i]);
     }
 
     if (!$found) {
@@ -35,7 +44,7 @@
         exit();
     }
 
-    file_put_contents('database.json', json_encode($result));
+    file_put_contents('database.json', json_encode($database));
 
     echo json_encode([
         'status' => 'ok'
