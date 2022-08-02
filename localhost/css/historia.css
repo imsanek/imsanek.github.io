@@ -18,8 +18,9 @@
   left: 0;
   width: 100% !important;
   background-color: #fffffff5;
-  height: 100vh !important;
+  height: 150vh !important;
   padding: 90px !important;
+  overflow: hidden;
   color: black !important;
 }
 .holo-button a{
