@@ -358,6 +358,7 @@ li {
   cursor: pointer;
 }
 .calendar-guests-text{
+  text-align-last: center;
   font-family: 'TypeFont', cursive;
   font-size: 20px;
   line-height: 40px;
