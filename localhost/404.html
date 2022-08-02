@@ -1,0 +1,189 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="description" content="Бутик отель История в Алуште">
+        <meta name="keywords" content="Бутик отель История в Алуште">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="description" content="Бутик-отель История в Алуште — уютный недорогой отель для отдыха в 300 м от моря, зеленая парковая зона, Wi-Fi, просторные номера, терраса +7 978 949 33 55. ... Мы рады приветствовать Вас на нашем официальном сайте. Отдохните в тени Приморского парка Алушты, в стороне от городского шума и суеты центральной набережной."/>
+       
+		<link rel="canonical" href="https://hotel-istoria.ru"/>
+        <title>Бутик отель История в Алуште</title>
+        <link href="css/historia.css" rel="stylesheet" type="text/css">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    </head>
+    <body>
+        <header class="header1">
+            <div class="header-wrapper">
+                <div class="header-logo">
+
+                </div>
+                <div class="header-nav">
+                    <a href="index.html"><span>Главная</span></a>
+                </div>
+                <div class="header-nav">
+                    <a href="./sub/about.html"><span>Об отеле</span></a>
+                </div>
+                <div class="header-nav" id="offers-nav">
+                    <span>Номера</span>
+                </div>
+                
+                <div class="header-nav">
+                    <a href="./sub/offer.html"><span>Акции</span></a>
+                </div>
+                <div class="header-nav">
+                    <a href="./sub/contacts.html"><span>Контакты</span></a>
+                </div>
+                <div class="header-nav">
+                    <span>г. Алушта, пер. Ревкомовский 3-A</span>
+                    <span>+7-978-949-33-55</span>
+                </div>
+                <div class="social">
+                    <div class="social-img1"></div>
+                    <div class="social-img2"></div>
+                </div>
+            </div>
+        </header>
+        <div class="header-video">
+            <video class="video" loop="loop" autoplay="" muted="">
+                <source src="./video/clouds.mp4" type="video/mp4" />
+                <source src="" type="video/ogv" />
+                <source src="" type="video/webm" />
+            </video>
+            <div class="header-cover"></div>
+            <div class="header-text">
+                <div class="header-text-name">
+                    <span>Бутик-отель</span>
+                </div>
+                <div class="header-text-name">
+                    <span>"История"</span>
+                </div>
+                <div class="header-text-name">
+                    <img src="./img/logo.png" alt="logo">
+                </div>
+                <div class="header-text-cit">
+                    Страница не найдена
+				</div>
+				<div class="note" style="text-align:center">
+					<p>Страница, на которую вы зашли, вероятно, была удалена с сайта, либо ее здесь никогда не было.</p>
+
+					<p>Возможно, вы ошиблись при наборе адреса или перешли по неверной ссылке.</p>
+
+					<p>Что делать?
+					<ul>
+						<li>проверьте правильность написания адреса,</li>
+						<li>перейдите на <a href="/">главную страницу сайта</a>,</li>
+						<li>или вернитесь на <a href="javascript:history.back()">предыдущую страницу</a>.</li>
+					</ul></p>
+
+                </div>
+               
+            </div>
+        </div>
+
+           
+        <div class="footer" id="contacts">
+            <div class="footer-text__left">
+                <ul>
+                    <li>298500, Россия,</li>
+                    <li>Республика Крым, Алушта,</li>
+                    <li>пер. Ревкомовский 3-а</li>
+                    <li>тел.: +7-978-949-33-55</li>
+                    <li>e-mail: hotel-istoria@mail.ru</li>
+                </ul>
+            </div>
+            <div class="footer-text__center">
+                <a href="./img/credit.pdf" target="_blank">
+                    <img src="./img/credit.png" alt="Свидетельство">
+                </a>
+            </div>
+            <div class="footer-text__right">
+                <ul>
+                    <li>Уважаемые гости бутик-отеля «История»!</li>
+                    <li>Для улучшения работы отеля прошу Вас</li>
+                    <li>направлять свои предложения</li>
+                    <li>на мою личную почту istoria-info@mail.ru</li>
+                    <li>С уважением, Новикова  Любовь Владимировна.</li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            function height(){
+                $('.header-video ').height($('.header-video video').height());
+            }
+           $(document).ready(function() {
+                setTimeout(height, 2000);
+                $( window ).resize(function() {
+                    height();
+                });
+
+                $('.calendar-search').on('click', function(){
+                    
+                var date1 = $("#datepicker1").val().split('.').reverse().join('-');
+                var date2 = $("#datepicker2").val().split('.').reverse().join('-');
+                       
+                    window.location.href = "./sub/search.html?date1="+ date1 +"&date2="+ date2 + "&guests=" + $('#guests').val() +"&children=" + $('#children').val();
+                    console.log('done')
+                });
+
+                /* DATA PICKER START*/
+                $.datepicker.regional['ru'] = {
+                    closeText: 'Закрыть',
+                    prevText: 'Предыдущий',
+                    nextText: 'Следующий',
+                    currentText: 'Сегодня',
+                    monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                    monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+                    dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+                    dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+                    dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+                    weekHeader: 'Не',
+                    dateFormat: 'dd.mm.yy',
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: ''
+                };
+                $.datepicker.setDefaults($.datepicker.regional['ru']);
+                $(function(){
+                    $("#datepicker1").datepicker();
+                    $("#datepicker2").datepicker();
+                    var date = new Date();
+                    date.setDate(date.getDate() + 1);
+                
+                    $("#datepicker1").datepicker({
+                        minDate: date
+                    });
+                    $("#datepicker2").datepicker({
+                        minDate: date
+                    });
+                });
+                
+                /* DATA PICKER END*/
+                
+                $('#contacts-nav').click(function(){
+                    $('html, body').animate({
+                        scrollTop: $('#contacts').offset().top
+                    }, {
+                        duration: 370,   // по умолчанию «400» 
+                        easing: "linear" // по умолчанию «swing» 
+                    });
+                });
+                $('#offers-nav').click(function(){
+                    $('html, body').animate({
+                        scrollTop: $('#offers').offset().top
+                    }, {
+                        duration: 370,   // по умолчанию «400» 
+                        easing: "linear" // по умолчанию «swing» 
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

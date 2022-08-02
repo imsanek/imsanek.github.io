@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="description" content="Бутик отель История в Алуште">
+        <meta name="keywords" content="Бутик отель История в Алуште">
+        <title>Бутик отель История в Алуште</title>
+        </head>
+    <body>
+        <form enctype="multipart/form-data" method="post" id="form" onsubmit="send(event, 'payment.php')">
+            <input name="name" type="text" hidden>
+            <input name="email" type="text" hidden>
+            <input name="number" type="text" hidden>
+            <input name="firstDate" type="text" hidden>
+            <input name="lastDate" type="text" hidden>
+            <input name="price" type="text" hidden>
+            
+            
+            <input value="Отправить письмо" class="mail-book" type="submit" hidden>
+        </form>
+    </body>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+    $('#form input[name="name"]').val(getUrlParameter("name"));
+    $('#form input[name="email"]').val(getUrlParameter("email"));
+    $('#form input[name="number"]').val(getUrlParameter("number"));
+    $('#form input[name="firstDate"]').val(getUrlParameter("firstDate"));
+    $('#form input[name="lastDate"]').val(getUrlParameter("lastDate"));
+    $('#form input[name="price"]').val(getUrlParameter("price"));
+    setTimeout(() => {window.close()}, 1777);
+    function send(event, php){
+        console.log("Отправка запроса");
+        event.preventDefault ? event.preventDefault() : event.returnValue = false;
+        var req = new XMLHttpRequest();
+        req.open('POST', php, true);
+        req.onload = function() {
+            if (req.status >= 200 && req.status < 400) {
+                json = JSON.parse(this.response); //  internet explorer 11
+                
+                // ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
+                if (json.result == "success") {
+                    // Если сообщение отправлено
+                    //alert("Сообщение отправлено");
+                } else {
+                    // Если произошла ошибка
+                   // alert("Ошибка. Сообщение не отправлено");
+                }
+            // Если не удалось связаться с php файлом
+            } else {//alert("Ошибка сервера. Номер: "+req.status);
+                }
+        }; 
+        
+        // Если не удалось отправить запрос. Стоит блок на хостинге
+        req.onerror = function() {alert("Ошибка отправки запроса");};
+        req.send(new FormData(event.target));
+        }
+    $('#form').submit();
+    function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+    </script>
+    
+</html>
