@@ -1,0 +1,582 @@
+@font-face {
+	font-family: 'TypeFont'; 
+	src: local('TypeFont'),
+		url('../fonts/PFDinTextCondPro-Medium.ttf'); 
+}
+
+@media screen {
+  body{
+    min-width: 1300px; 
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+.red{
+  background: red !important;
+  color: white !important;
+}
+
+.grad_red{
+  background: linear-gradient(130deg,red 50%, #00b9ff 50%) !important;
+  color: white !important;
+  text-align: center !important;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: TypeFont, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.body_bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.15;
+  height: 100vh;
+  z-index: -1;
+}
+
+a{
+  text-decoration: none;
+  color: #d2c1b5;
+}
+
+li {
+  list-style-type: none; 
+}
+ ul {
+  margin-left: 0;
+  padding-left: 0; 
+}
+
+.list{
+  padding-top: 40px;
+  padding-right: 4px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.panel span:first-child{
+  font-size: 40px;
+  padding-left: 15px;
+}
+.number{
+  display: flex;
+  margin-top: 15px;
+  border: 1px solid;
+  width: 130px;
+  height: 100px;
+  flex-direction: column;
+  margin-bottom: 4px;
+  position: relative;
+  box-shadow: 0 0 10px black;
+  transition: transform 0.8s;
+}
+.number:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.number img{
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.number span {
+  font-family: 'TypeFont', cursive;
+  font-size: 10px;
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  text-align: right;
+  padding: 5px 0;
+  color: whitesmoke;
+  background: #1a1a1dad;
+  width: 100%;
+  letter-spacing: 3px;
+}
+.navigation{
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 25px;
+}
+
+
+.table{
+  margin: 0 auto;
+  border: 1px solid;
+  display: flex;
+}
+.info{
+  background-color: yellowgreen;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  border: 1px solid;
+  font-size: 25px;
+  padding: 10px;
+}
+
+select{
+  font-size: 20px;
+}
+.button{
+  font-size: 20px;
+  margin-top: 10px;
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: rgba(245, 245, 245, 0.205);
+  width: 204px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.calendar{
+  border: 1px solid;
+  padding: 10px;
+  position: relative;
+}
+
+
+#datepicker{
+  width: 98%;
+  border: 0 !important;
+}
+.calendar .ui-datepicker-calendar tr{
+  border-top: 2px solid gray;
+}
+.calendar td a{
+  height: 25px;
+  width: 25px;
+  margin-right: 5px;
+  text-align: center !important;
+  line-height: 25px;
+}
+
+.calendar .hasDatepicker{
+  margin-bottom: 10px;
+}
+
+.calendar thead{
+  display: none;
+}
+
+#datepicker1 .ui-datepicker-header{
+  display: block;
+}
+.table .ui-datepicker-header{
+  display: none;
+}
+
+.calendar tbody{
+  display: flex;
+  justify-content: space-around;
+}
+
+.calendar .ui-widget.ui-widget-content{
+  border: 0;
+}
+.calendar .ui-datepicker{
+  width: 100% !important;
+}
+
+.calendar .ui-datepicker td{
+  height: 100px;
+}
+.calendar-first{
+  display: flex;
+  border: 2px solid rgb(0, 0, 0);
+  width: 200px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 5px;
+}
+.calendar-last{
+  border: 2px solid rgb(0, 0, 0);
+  width: 200px;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 5px;
+}
+.calendar-text{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 40px;
+  height: 100%;
+  background-color: rgba(245, 245, 245, 0.205);
+  width: 45%;
+}
+.calendar-text-g{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  height: 100%;
+  background-color: rgba(245, 245, 245, 0.205);
+  width: 60%;
+}
+.calendar-blocks{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  border-left: 1px solid;
+  cursor: pointer;
+}
+.calendar-blocks::placeholder{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  height: 100%;
+}
+
+.calendar-guests{
+  border: 2px solid rgb(0, 0, 0);
+  width: 15%;
+  display: flex;
+  cursor: pointer;
+}
+.calendar-guests-text{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  width: 40%;
+  letter-spacing: 1px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  cursor: pointer;
+}
+
+
+.month{
+  padding: 10px;
+  padding-left: 20px;
+  font-size: 40px;
+}
+.calendar-block{
+  display: flex;
+  flex-direction: column;
+}
+.new-ticket{
+  border-left: 1px solid black;
+  border-top: 1px solid black;;
+  width: 45%;
+  margin-left: 5%;
+}
+
+.color-block1{
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+  border: 1px solid black;
+  background-color: #f6f6f6;;
+}
+
+.color-block2{
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+  border: 1px solid black;
+  background-color: red;;
+}
+
+.book{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: rgba(245, 245, 245, 0.205);
+  width: 413px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.booking-input{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  height: 40px;
+  width: 205px;
+  color: rgb(0, 0, 0);
+  background-color: rgba(245, 245, 245, 0.205);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.booking-input::placeholder{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  height: 100%;
+  color: rgb(0, 0, 0);
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+.full-text{
+  font-family: 'TypeFont', cursive;
+  font-size: 40px;
+}
+.full2-text{
+  font-family: 'TypeFont', cursive;
+  font-size: 25px;
+  align-self: self-start;
+  padding-left: 15px;
+}
+
+.pop-up{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  opacity: 0.7;
+  background-color: #dee1e2;
+}
+
+.full-content{
+  align-self: center;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  top: 0.5%;
+  position: fixed;
+  background-color: white;
+  width: 350px;
+  opacity: 1;
+  border: 1px solid gainsboro;
+  box-shadow: 0 0 10px rgb(174, 204, 228);
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 101;
+}
+
+.tickets{
+  display: flex;
+}
+.ticket-block{
+  display: flex;
+  border: 3px solid;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.calendar-next{
+  position: absolute;
+  z-index: 99;
+  height: 37px;
+  right: 8px;
+  width: 37px;
+  top: 13px;
+}
+.calendar-prev{
+  position: absolute;
+  z-index: 99;
+  height: 37px;
+  left: 13px;
+  width: 37px;
+  top: 13px;
+}
+
+.price-list{
+  width: 730px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.price-number{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 120px;
+  margin-top: 15px;
+  border: 1px solid;
+  height: 200px;
+  margin-bottom: 15px;
+  position: relative;
+  box-shadow: 0 0 10px black;
+  transition: transform 0.8s;
+}
+
+.price-number input{
+  height: 40px;
+  width: 100px;
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  align-self: center;
+}
+
+.price-number input::placeholder{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+}
+
+.price{
+  font-family: 'TypeFont', cursive;
+  font-size: 18px;
+  width: 100px;
+  text-align: center;
+}
+
+.price-number img{
+  height: 100%;
+  object-fit: cover;
+  width: 120px;
+  padding-left: 1px;
+}
+.price-number span {
+  font-family: 'TypeFont', cursive;
+  font-size: 10px;
+  position: absolute;
+  bottom: 60%;
+  text-align: right;
+  padding: 5px 0;
+  color: whitesmoke;
+  background: #1a1a1dad;
+  width: 120px;
+  letter-spacing: 3px;
+}
+
+.price-button{
+  font-size: 17px;
+  margin-top: 10px;
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: rgba(245, 245, 245, 0.205);
+  width: 110px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.send-button{
+  border: 3px solid rgb(74, 74, 74) !important;
+  background-color: rgba(245, 245, 245, 0.205);
+  font-size: 17px;
+  margin-top: 10px;
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: rgb(245, 245, 245);
+  cursor: pointer;
+}
+
+.form-text{
+  display: flex;
+  flex-direction: column;
+  font-family: 'TypeFont', cursive;
+  font-size: 25px;
+  align-self: self-start;
+  padding-left: 15px;
+}
+
+#form{
+  display: flex;
+  flex-direction: column;
+}
+
+#form input{
+  border: 0;
+  font-size: 17px;
+  margin-top: 5px;
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: rgb(245, 245, 245);
+  cursor: pointer;
+}
+
+
+
+
+.delete-booking{
+  font-size: 17px;
+  margin-top: 5px;
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: rgb(245, 245, 245);
+  cursor: pointer;
+}
+
+.calendar-stack{
+  display: flex;
+  justify-content: space-between;
+}
+
+.mail-book{
+  font-family: 'TypeFont', cursive;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: rgba(245, 245, 245, 0.205);
+  width: 413px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#form1{
+  margin: 0;
+}
