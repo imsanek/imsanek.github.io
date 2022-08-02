@@ -113,6 +113,10 @@
                 <div class="header-text-cit">
                     Уделим внимание каждому гостю!
                 </div>
+                <div class="header-text-cit hidden" style="
+                    margin-top: 100px;
+                "><i class="fa fa-chevron-down" aria-hidden="true"></i>Бронирование<i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
                 <div class="calendar">
                     <div class="calendar-first">
                         <div class="calendar-text">
@@ -154,7 +158,14 @@
             </div>
         </div>
 
-            <div class="content-text"><span>БЕСПЛАТНО ВСТРЕЧАЕМ И ПРОВОЖАЕМ С ВОКЗАЛОВ ГОРОДА СИМФЕРОПОЛЬ НА СОБСТВЕННОМ АВТОМОБИЛЕ БИЗНЕС-КЛАССА*</span>
+            <div class="content-text">
+                <div class="header-text-cit hidden" style="
+                    width: 100%;
+                    margin: 20px auto;
+                    color: black;
+                "><i class="fa fa-chevron-down" aria-hidden="true"></i>Специальные предложения<i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <span>БЕСПЛАТНО ВСТРЕЧАЕМ И ПРОВОЖАЕМ С ВОКЗАЛОВ ГОРОДА СИМФЕРОПОЛЬ НА СОБСТВЕННОМ АВТОМОБИЛЕ БИЗНЕС-КЛАССА*</span>
             <div class="auto" id="slider_bl">
                 <div class="wrapper">
                     <input checked type=radio name="slider" id="slide1" />
@@ -193,7 +204,7 @@
                 </div>
         </div>
         <div class="wrapper" id="offers">
-            <div class="content-text">НОМЕРА</div>
+            <div class="content-text">НАШИ НОМЕРА</div>
             <div class="offers">
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-1.html">
@@ -435,6 +446,8 @@
                     $('.header-nav:eq(2)').hide();
                     $('.header-nav:eq(3)').hide();
                     $('.header-nav:eq(4)').hide();
+                    $('.header-text-cit:eq(1)').removeClass('hidden');
+                    $('.header-text-cit:eq(2)').removeClass('hidden');
                     $('.holo-button').removeClass('hidden');
                     $("i.fa").click(function(){ 
                         $('.holo-button .header-menu').toggleClass('hidden');

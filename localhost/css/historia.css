@@ -11,23 +11,34 @@
 		url('../fonts/PFDinTextCondPro-Medium.ttf'); 
 }
 
-
+.holo-button::before{
+  content: 'Меню';
+  font-family: 'TypeFont', cursive;
+  font-size: 35px;
+  float: left;
+  margin: 0 10px;
+}
 .active-button{
   position: absolute;
   top: 0;
   left: 0;
   width: 100% !important;
-  background-color: #fffffff5;
+  background-color: #2b2a2afa;
   height: 150vh !important;
   padding: 90px !important;
   overflow: hidden;
-  color: black !important;
+  background-image: url(../img/card_2.jpg);
+  background-size: 60%;
+  background-position: 35%;
+  background-repeat: no-repeat;
+  color: white !important;
 }
 .holo-button a{
-  color: #000;
+  color: white;
 }
 .holo-button{
-  width: 50px;
+  width: 140px;
+  font-family: 'TypeFont', cursive;
   height: 50px;
   font-size: 45px;
   color: #d2c1b5;
@@ -38,7 +49,7 @@
 
 .holo-button div{
   margin: 30px 0;
-  color: black;
+  color: white;
   font-size: 100px;
 }
 
@@ -87,7 +98,7 @@
     font-size: 100px !important;
   }
   .header-text-cit{
-    font-size: 65px !important;
+    font-size: 60px !important;
   }
   .calendar div{
     margin-bottom: 15px;
@@ -104,6 +115,7 @@
   }
   .header-video{
     height: auto !important;
+    padding-bottom: 35px;
   }
   .header-nav{
     margin-left: auto !important;
@@ -273,6 +285,8 @@ li {
   font-family: 'TypeFont', cursive;
   font-size: 30px;
   color: whitesmoke;
+  width: 100%;
+  text-align: center;
 }
 .header-video{
   width: 100%;
