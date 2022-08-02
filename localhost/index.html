@@ -72,6 +72,25 @@
                     <div class="social-img1"></div>
                     <div class="social-img2"></div>
                 </div>
+                <div class="holo-button hidden">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                    <div class="header-menu hidden">
+                        <a href="index.html"><span>Главная</span></a>
+                    </div>
+                    <div class="header-menu hidden">
+                        <a href="./sub/about.html"><span>Об отеле</span></a>
+                    </div>
+                    <div class="header-menu hidden" id="offers-menu">
+                        <span>Номера</span>
+                    </div>
+                    
+                    <div class="header-menu hidden">
+                        <a href="./sub/offer.html"><span>Акции</span></a>
+                    </div>
+                    <div class="header-menu hidden">
+                        <a href="./sub/contacts.html"><span>Контакты</span></a>
+                    </div>
+                </div>
             </div>
         </header>
         <div class="header-video">
@@ -179,7 +198,7 @@
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-1.html">
                         <img src="img/room_prev/injan.jpg" alt="Инь-Янь (студио)">
-                        <img src="img/border.png" class="border-image">
+                         
                         <span>
                             Инь-Янь ( люкс )
                         </span>
@@ -189,7 +208,7 @@
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-2.html">
                     <img src="img/room_prev/blago.jpg" alt="Благодать (студио)">
-                    <img src="img/border.png" class="border-image">
+                     
                     <span>
                         Благодать ( люкс )
                     </span>
@@ -198,7 +217,7 @@
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-3.html">
                     <img src="img/room_prev/cruis.jpg" alt="Круизный (студио)">
-                    <img src="img/border.png" class="border-image">
+                     
                     <span>
                         Круиз ( люкс )
                     </span>
@@ -207,7 +226,7 @@
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-4.html">
                     <img src="./img/room_prev/tradition.jpg" alt="Традиция (люкс)">
-                    <img src="img/border.png" class="border-image">
+                     
                     <span>
                         Традиция ( люкс )
                     </span>
@@ -216,7 +235,7 @@
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-5.html">
                     <img src="img/room_prev/shoko.jpg" alt="Шоколадница">
-                    <img src="img/border.png" class="border-image">
+                     
                     <span>
                         Шоколадница
                     </span>
@@ -224,7 +243,7 @@
                 </a></div>
                 <div class="offer-box box7"><a href="sub/rooms/room-6.html">
                     <img src="img/room_prev/asian.jpg" alt="Азия">
-                    <img src="img/border.png" class="border-image">
+                     
                     <span>
                         Азия
                     </span>
@@ -233,7 +252,7 @@
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-7.html">
                     <img src="img/room_prev/jaz.jpg" alt="Джаз">
-                    <img src="img/border.png" class="border-image">
+                     
                     <span>
                         Джаз
                     </span>
@@ -243,7 +262,7 @@
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-8.html">
                     <img src="img/room_prev/provance.jpg" alt="Прованс">
-                    <img src="img/border.png" class="border-image">
+                     
                     <span>
                         Прованс
                     </span>
@@ -252,7 +271,7 @@
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-9.html">
                     <img src="img/room_prev/lavanda.jpg" alt="Дача «Лаванда»">
-                    <img src="img/border.png" class="border-image">
+                     
                     <span>
                         Дача «Лаванда»
                     </span>
@@ -261,7 +280,7 @@
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-10.html">
                     <img src="img/room_prev/rozmarin.jpg" alt="Дача «Розмарин»">
-                    <img src="img/border.png" class="border-image">
+                     
                     <span>
                         Дача «Розмарин»
                     </span>
@@ -407,32 +426,27 @@
                 $('.header-video ').height($('.header-video video').height());
             }
            $(document).ready(function() {
+
+
+                if($(window).width() < 981){
+                    var snitch = true;
+                    $('.header-nav:eq(0)').hide();
+                    $('.header-nav:eq(1)').hide();
+                    $('.header-nav:eq(2)').hide();
+                    $('.header-nav:eq(3)').hide();
+                    $('.header-nav:eq(4)').hide();
+                    $('.holo-button').removeClass('hidden');
+                    $("i.fa").click(function(){ 
+                        $('.holo-button .header-menu').toggleClass('hidden');
+                        $('.holo-button').toggleClass('active-button');
+                    })
+                }
+
+
                 setTimeout(height, 2000);
                 $( window ).resize(function() {
                     height();
                 });
-
-                if($(window).width() < 981){
-                    $('.header-nav:eq(3)').hide();
-                    $('.header-nav:eq(4)').hide();
-                    $('.header-nav:eq(4)').after($('<div/>',{
-                        'class': 'collapsible-menu'
-                    }));
-                    $('.collapsible-menu').append($('<input/>',{
-                        'class': 'collapsible-menu',
-                        'type': 'checkbox',
-                        id: 'menu'
-                    })).append($('<label/>',{
-                        'for': 'menu',
-                        'html': 'Ещё <i class="fa fa-caret-down" aria-hidden="true"></i>' 
-                    })).append($('<div/>',{
-                        'class': 'menu-content'
-                    }));
-
-                    $('.menu-content').append($('<ul/>',{
-                        'html': '<li><a href="./sub/offer.html">Акции</a></li><li><a href="./sub/contacts.html">Контакты</a></li>'
-                    }));
-                }
 
                 $('.calendar-search').on('click', function(){
                     
@@ -493,6 +507,24 @@
                         duration: 370,   // по умолчанию «400» 
                         easing: "linear" // по умолчанию «swing» 
                     });
+                });
+                $('#offers-menu').click(function(){
+                    $('html, body').animate({
+                        scrollTop: $('#offers').offset().top
+                    }, {
+                        duration: 370,   // по умолчанию «400» 
+                        easing: "linear" // по умолчанию «swing» 
+                    });
+                    $("i.fa").click();
+                });
+                $('#contacts-menu').click(function(){
+                    $('html, body').animate({
+                        scrollTop: $('#contacts').offset().top
+                    }, {
+                        duration: 370,   // по умолчанию «400» 
+                        easing: "linear" // по умолчанию «swing» 
+                    });
+                    $("i.fa").click();
                 });
             });
         </script>
