@@ -158,12 +158,12 @@
             </div>
         </div>
 
-            <div class="content-text">
+        <div class="content-text" id="offers-mobile">
                 <div class="header-text-cit hidden" style="
                     width: 100%;
                     margin: 20px auto;
                     color: black;
-                "><i class="fa fa-chevron-down" aria-hidden="true"></i>Специальные предложения<i class="fa fa-chevron-down" aria-hidden="true"></i>
+                "><i class="fa fa-chevron-down" aria-hidden="true"></i>СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ<i class="fa fa-chevron-down" aria-hidden="true"></i>
                 </div>
                 <span>БЕСПЛАТНО ВСТРЕЧАЕМ И ПРОВОЖАЕМ С ВОКЗАЛОВ ГОРОДА СИМФЕРОПОЛЬ НА СОБСТВЕННОМ АВТОМОБИЛЕ БИЗНЕС-КЛАССА*</span>
             <div class="auto" id="slider_bl">
@@ -196,7 +196,8 @@
                       <label for=slide2></label>
                       <label for=slide3></label>
                     </div>
-                  </div>
+                </div>
+                
             </div>
             <div class="content-text__small">
                 <span>*в случаях невозможности предоставления автомобиля при одновременном заезде-выезде двух и более номеров предоставляем компенсацию</span>
@@ -204,7 +205,7 @@
                 </div>
         </div>
         <div class="wrapper" id="offers">
-            <div class="content-text">НАШИ НОМЕРА</div>
+            <div class="content-text" id="mobile">НАШИ НОМЕРА</div>
             <div class="offers">
                 <div class="offer-box box7">
                     <a href="sub/rooms/room-1.html">
@@ -298,6 +299,36 @@
                     <span><i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i></i> + <i class="fa fa-user" aria-hidden="true"></i></span>
                 </a></div>
             </div>
+            
+        </div>
+        <div class="mobile">
+            <div class="content-text" id="mobile">СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</div>
+            <div id="carousel-wrapper1">
+                <div id="menu1">
+                    <div id="current-option1">
+                      <span id="current-option-text11" data-previous-text="" data-next-text=""></span>
+                      <span id="current-option-text21" data-previous-text="" data-next-text=""></span>
+                    </div>
+                    <button id="previous-option1"></button>
+                    <button id="next-option1"></button>  
+                </div>
+                <div id="image1"></div>
+            </div>
+        </div>
+
+        <div class="mobile">
+            <div class="content-text" id="mobile">НАШИ НОМЕРА</div>
+            <div id="carousel-wrapper">
+                <div id="menu">
+                    <div id="current-option">
+                      <span id="current-option-text1" data-previous-text="" data-next-text=""></span>
+                      <span id="current-option-text2" data-previous-text="" data-next-text=""></span>
+                    </div>
+                    <button id="previous-option"></button>
+                    <button id="next-option"></button>  
+                </div>
+                <div id="image"></div>
+            </div>
         </div>
         
         <div class="wrapper">
@@ -307,7 +338,6 @@
                     <ul class="text-ul">
                         <li>Завтрак</li>
                         <li>Ежедневная уборка номера</li>
-                        <li>Смена белья один раз в пять суток</li>
                         <li>Бесплатный Wi-Fi</li>
                         <li>Кабельное TV</li>
                         <li>Чайный стол в холле</li>
@@ -345,7 +375,7 @@
             </div>
         </div>
         <div class="wrapper">
-            <div class="content-text">НАШЕ РАСПОЛОЖЕНИЕ</div>
+            <div class="content-text" id="mobile">НАШЕ РАСПОЛОЖЕНИЕ</div>
             <div class="map">
                 <div class="map-img">
                     
@@ -369,7 +399,7 @@
             </div>
         </div>
         <div class="wrapper">
-            <div class="content-text">БУТИК-ОТЕЛЬ «ИСТОРИЯ» НА КАРТЕ</div>
+            <div class="content-text" id="mobile">БУТИК-ОТЕЛЬ «ИСТОРИЯ» НА КАРТЕ</div>
             <div class="map-pull">
                 <div class="map-pull-text">
                 <div class="services-text">Преимущества расположения:</div>
@@ -433,11 +463,194 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
+            const text1_options = [
+            "Инь-Янь",
+            "Благодать",
+            "Круиз",
+            "Традиция",
+            "Шоколадница",
+            "Азия",
+            "Джаз",
+            "Прованс",
+            'Дача "Лаванда"',
+            'Дача "Розмарин"'
+            ];
+            const text2_options = [
+            'Инь-Янь – стильный, красивый и большой номер со своим балконом. Расположение мебели позволяет организовать дополнительное место для отдыха ребенка либо зоны для просмотра телевизора.',
+            'Благодать – очень красивый и большой номер со всеми удобствами. Имеется балкон с видом на горы. Позволяет разместить ребенка на дополнительном месте.',
+            'Круиз – красивый просторный номер с большим балконом. В 2022 году проведен капитальный ремонт туалетной комнаты с полной заменой сантехники, проведена частичная замена мебели. Имеется гардеробная комната. Позволяет разместить ребенка на дополнительном месте.',
+            'Традиция- большой и просторный номер с двумя балконами. В 2022 году проведен капитальный ремонт туалетной комнаты с полной заменой сантехники, проведена частичная замена мебели. Отдельная комната позволяет разместить ребенка на дополнительном месте.',
+            "Шоколадница - спокойный и уютный номер со своим балконом и видом на горы. Позволяет разместить ребенка на дополнительном месте.",
+            "Азия - очень уютный номер со своим балконом и видом на горы. Позволяет разместить ребенка на дополнительном месте.",
+            "Джаз - уютный номер со своим балконом и видом на Приморский парк. В 2022 году проведен капитальный ремонт туалетной комнаты с полной заменой сантехники. Позволяет разместить ребенка на дополнительном месте.",
+            "Прованс – просторный и удобный номер включает в себе две отдельные комнаты, которые позволяют разместить одну большую семью. Две туалетных комнаты. Имеется просторный балкон.",
+            "Лаванда – летний со всеми удобствами, отдельно стоящий номер. Завтрак организовывается на улице в отдельной беседке (по желанию в общем месте приема пищи на 1 этаже гостевого дома). Имеется возможность дополнительного размещения как взрослого человека так и ребенка.",
+            "Розмарин – летний со всеми удобствами, отдельно стоящий номер. Завтрак организовывается на улице в отдельной беседке (по желанию в общем месте приема пищи на 1 этаже гостевого дома). Имеется возможность дополнительного размещения как взрослого человека так и ребенка."
+            ];
+            const color_options = [
+                "linear-gradient(to right, #78ffd6, #a8ff78)", 
+                "linear-gradient(to right, #a8ff78, #78ffd6)",
+                "linear-gradient(to right, #78ffd6, #a8ff78)", 
+                "linear-gradient(to right, #a8ff78, #78ffd6)",
+                "linear-gradient(to right, #78ffd6, #a8ff78)", 
+                "linear-gradient(to right, #a8ff78, #78ffd6)",
+                "linear-gradient(to right, #78ffd6, #a8ff78)", 
+                "linear-gradient(to right, #a8ff78, #78ffd6)",
+                "linear-gradient(to right, #78ffd6, #a8ff78)", 
+                "linear-gradient(to right, #a8ff78, #78ffd6)"
+            ];
+            const image_options = [
+            "img/room_prev/injan.jpg",
+            "img/room_prev/blago.jpg",
+            "img/room_prev/cruis.jpg",
+            "img/room_prev/tradition.jpg",
+            "img/room_prev/shoko.jpg",
+            "img/room_prev/asian.jpg",
+            "img/room_prev/jaz.jpg",
+            "img/room_prev/provance.jpg",
+            "img/room_prev/lavanda.jpg",
+            "img/room_prev/rozmarin.jpg"
+            ];
+            var i = 0;
+            const currentOptionText1 = document.getElementById("current-option-text1");
+            const currentOptionText2 = document.getElementById("current-option-text2");
+            const currentOptionImage = document.getElementById("image");
+            const carousel = document.getElementById("carousel-wrapper");
+            const mainMenu = document.getElementById("menu");
+            const optionPrevious = document.getElementById("previous-option");
+            const optionNext = document.getElementById("next-option");
+
+            currentOptionText1.innerText = text1_options[i];
+            currentOptionText2.innerText = text2_options[i];
+            currentOptionImage.style.backgroundImage = "url(" + image_options[i] + ")";
+            mainMenu.style.background = color_options[i];
+
+            optionNext.onclick = function () {
+            i = i + 1;
+            i = i % text1_options.length;
+            currentOptionText1.dataset.nextText = text1_options[i];
+
+            currentOptionText2.dataset.nextText = text2_options[i];
+
+            mainMenu.style.background = color_options[i];
+            carousel.classList.add("anim-next");
+            
+            setTimeout(() => {
+                currentOptionImage.style.backgroundImage = "url(" + image_options[i] + ")";
+            }, 455);
+            
+            setTimeout(() => {
+                currentOptionText1.innerText = text1_options[i];
+                currentOptionText2.innerText = text2_options[i];
+                carousel.classList.remove("anim-next");
+            }, 650);
+            };
+
+            optionPrevious.onclick = function () {
+            if (i === 0) {
+                i = text1_options.length;
+            }
+            i = i - 1;
+            currentOptionText1.dataset.previousText = text1_options[i];
+
+            currentOptionText2.dataset.previousText = text2_options[i];
+
+            mainMenu.style.background = color_options[i];
+            carousel.classList.add("anim-previous");
+
+            setTimeout(() => {
+                currentOptionImage.style.backgroundImage = "url(" + image_options[i] + ")";
+            }, 455);
+            
+            setTimeout(() => {
+                currentOptionText1.innerText = text1_options[i];
+                currentOptionText2.innerText = text2_options[i];
+                carousel.classList.remove("anim-previous");
+            }, 650);
+            };
+
+        </script>
+        <script>
+            const text1_options1 = [
+            "Встречаем гостей!",
+            "Для наших гостей, оформивших клубную карту, скидка - 10%!"
+            ];
+            const text2_options1 = [
+            'Бесплатно встречаем и провожаем с вокзалова города Симферополь на собственном автомобиле бизнес-класс, а в случаях невозможности предоставления автомобиля при одновременном заезде-выезде двух и более номеров предоставляем компенсацию (стоимость оговаривается по предварительной договорённости)',
+            ''
+            ];
+            const color_options1 = [
+                "linear-gradient(to right, rgb(255 138 75), rgb(255 177 224))", 
+                "linear-gradient(to right, rgb(255 177 224), rgb(255 138 75))"
+            ];
+            const image_options1 = [
+            "img/auto2.jpg",
+            "img/card_1.jpg"
+            ];
+            var i = 0;
+            const currentOptionText11 = document.getElementById("current-option-text11");
+            const currentOptionText21 = document.getElementById("current-option-text21");
+            const currentOptionImage1 = document.getElementById("image1");
+            const carousel1 = document.getElementById("carousel-wrapper1");
+            const mainMenu1 = document.getElementById("menu1");
+            const optionPrevious1 = document.getElementById("previous-option1");
+            const optionNext1 = document.getElementById("next-option1");
+
+            currentOptionText11.innerText = text1_options1[i];
+            currentOptionText21.innerText = text2_options1[i];
+            currentOptionImage1.style.backgroundImage = "url(" + image_options1[i] + ")";
+            mainMenu1.style.background = color_options1[i];
+
+            optionNext1.onclick = function () {
+            i = i + 1;
+            i = i % text1_options1.length;
+            currentOptionText11.dataset.nextText = text1_options1[i];
+
+            currentOptionText21.dataset.nextText = text2_options1[i];
+
+            mainMenu1.style.background = color_options1[i];
+            carousel1.classList.add("anim-next1");
+            
+            setTimeout(() => {
+                currentOptionImage1.style.backgroundImage = "url(" + image_options1[i] + ")";
+            }, 455);
+            
+            setTimeout(() => {
+                currentOptionText11.innerText = text1_options1[i];
+                currentOptionText21.innerText = text2_options1[i];
+                carousel1.classList.remove("anim-next1");
+            }, 650);
+            };
+
+            optionPrevious1.onclick = function () {
+            if (i === 0) {
+                i = text1_options1.length;
+            }
+            i = i - 1;
+            currentOptionText11.dataset.previousText = text1_options1[i];
+
+            currentOptionText21.dataset.previousText = text2_options1[i];
+
+            mainMenu1.style.background = color_options1[i];
+            carousel1.classList.add("anim-previous1");
+
+            setTimeout(() => {
+                currentOptionImage1.style.backgroundImage = "url(" + image_options1[i] + ")";
+            }, 455);
+            
+            setTimeout(() => {
+                currentOptionText11.innerText = text1_options1[i];
+                currentOptionText21.innerText = text2_options1[i];
+                carousel1.classList.remove("anim-previous1");
+            }, 650);
+            };
+
+        </script>
+        <script>
             function height(){
                 $('.header-video ').height($('.header-video video').height());
             }
            $(document).ready(function() {
-
 
                 if($(window).width() < 981){
                     var snitch = true;

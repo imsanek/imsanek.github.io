@@ -5,19 +5,157 @@
 		url('../fonts/PFDinTextCondPro-Medium.ttf'); 
 }
 
-@media screen {
+.holo-button::before{
+  content: 'Меню';
+  font-family: 'TypeFont', cursive;
+  font-size: 35px;
+  float: left;
+  margin: 0 10px;
+}
+.active-button{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  background-color: #2b2a2afa;
+  height: 150vh !important;
+  padding: 90px !important;
+  overflow: hidden;
+  background-image: url(../img/card_2.jpg);
+  background-size: 60%;
+  background-position: 35%;
+  background-repeat: no-repeat;
+  color: white !important;
+}
+.holo-button a{
+  color: white;
+}
+.holo-button{
+  width: 140px;
+  font-family: 'TypeFont', cursive;
+  height: 50px;
+  font-size: 45px;
+  color: #d2c1b5;
+  padding: 20px;
+  margin-left: auto;
+  transition: 0.15s;
+}
+
+.holo-button div{
+  margin: 30px 0;
+  color: white;
+  font-size: 100px;
+}
+
+.holo-button div::before{
+  content: '>';
+}
+
+.hidden{
+  display: none;
+}
+@media screen and (max-width: 980px) {
+  .video{
+    display: none;
+  }
+.header-logo{
+  margin: 59px;
+}
+  .menu-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+  }
+  .header-wrapper{
+    height: 120px !important;
+  }
+
+  .header-text{
+    margin-top: 100px;
+  }
+  .header-cover{
+    background-image: url("../img/map2.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+    filter: brightness(0.2);
+  }
+  .calendar{
+    padding: 25px;
+    border-radius: 5%;
+    margin: 50px auto !important;
+    display: flex !important;
+    height: auto !important;
+    flex-direction: column !important;
+    width: 80% !important;
+    align-items: center !important;
+  }
+  .header-text-name{
+    font-size: 100px !important;
+  }
+  .header-text-cit{
+    font-size: 60px !important;
+  }
+  .calendar div{
+    margin-bottom: 15px;
+    height: 100px !important;
+    width: 100%;
+    line-height: 100px;
+    font-size: 45px;
+  }
+  .calendar div input::placeholder{
+    font-size: 45px;
+  }
+  .calendar div select{
+    font-size: 45px;
+  }
+  .header-video{
+    height: auto !important;
+    padding-bottom: 35px;
+  }
+  .header-nav{
+    margin-left: auto !important;
+  }
+
   body{
-    min-width: 1300px; 
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    width: 100% !important;
+  }
+
+  .map-pull{
+    flex-direction: column;
+    align-items: center;
+  }
+  .map-pull-text{
+    width: auto !important;
+    font-size: 35px !important;
+  }
+
+  .services{
+    flex-direction: column;
+    align-items: center;
+    font-size: 35px !important;
+  }
+
+  .services-text{
+    margin: 0 auto;
+  }
+
+  #mobile{
+    font-size: 60px !important;
+  }
+
+  .services-text-center{
+    font-size: 35px !important;
+    width: 100% !important;
+    padding: 0 !important;
   }
 }
 
 body{
+  min-width: 1300px; 
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
 }
