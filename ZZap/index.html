@@ -1,0 +1,125 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="description" content="ZZap">
+        <meta name="keywords" content="ZZap">
+        <meta name="format-detection" content="telephone=no">
+        <title>ZZap</title>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <link href="index.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    </head>
+    <body>
+        <input type="file" id="csvfile" />  
+        <input type="button" id="viewfile" value="Начать поиск" onclick="ExportToTable()"/>
+        <div id="parse" style="display: none;"></div>  
+        <div id="status" style="border: 1px solid black;width: 400px;margin: 60px 0;text-align: center;height: 50px;line-height: 50px;"> Статус </div>
+    </body>
+    <script src="js/FileSaver.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.18.11/package/dist/xlsx.full.min.js"></script>
+    <script type = "text/javascript">
+        var Parsering = [];
+        var result = [];
+        var ind = 0;
+        function getSearch(partnumber, class_man){
+            $.ajax({
+                url: 'https://www.zzap.ru/webservice/datasharing.asmx/GetSearchResultInfoV2',  
+                method: 'POST',
+                data:{
+                    login: "",
+                    password: "",
+                    partnumber: partnumber,
+                    class_man: class_man,
+                    code_cur: "1",
+                    api_key: "MBmE7rdJlQjqwrBoiBfQMrgx81As2qBPB0upVozhyWVt5AInzOVKnmkdSBx"
+                },             
+                dataType: 'html',          
+                success: function(data){   
+                    $('#parse').html(data);
+                    Parsering.push($.parseJSON($('#parse').text()));
+                }
+            });
+        }
+        function s2ab(s) { 
+                var buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
+                var view = new Uint8Array(buf);  //create uint8array as viewer
+                for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //convert to octet
+                return buf;    
+        }
+        function saveAll(){
+            var final = [];
+                for(var x = 0; x < Parsering.length; x++){
+                    final.push([]);
+                    final[x].push(Parsering[x].class_cat);
+                    final[x].push(Parsering[x].code_man);
+                    final[x].push(Parsering[x].code_cat);
+                    final[x].push(Parsering[x].price_min_instock);
+                    final[x].push(Parsering[x].price_min_order);
+                }
+            var ws = XLSX.utils.aoa_to_sheet(final,{origin: "A2"});
+            var wb = XLSX.utils.book_new();
+            ws.A1 = {v: "наименование", t: "s"};
+            ws.B1 = {v: "внутренний код производителя позиции", t: "s"};
+            ws.C1 = {v: "внутренний уникальный код позиции", t: "s"};
+            ws.D1 = {v: "минимальная цена среди предложений в наличии", t: "s"};
+            ws.E1 = {v: "минимальная цена среди предложений под заказ", t: "s"};
+            wb.Props = {
+                Title: "result",
+                Subject: "result",
+                Author: "kizmato",
+                CreatedDate: new Date()
+            };
+            wb.SheetNames.push("Результат запроса");
+            wb.Sheets["Результат запроса"] = ws;
+            var wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
+            saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'result.xlsx');
+        }
+
+        function ExportToTable() {
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv)$/;
+            //Checks whether the file is a valid csv file   
+            if (regex.test($("#csvfile").val().toLowerCase())) {
+            //Checks whether the browser supports HTML5   
+            if (typeof(FileReader) != "undefined") {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var csvrows = e.target.result.split("\n");
+                    
+                    for(var i = 0; i< csvrows.length; i ++){
+                        result.push(csvrows[i].slice(0,-1).split(';'));
+                    }
+                    var time = 4000;
+                    
+                    for(var i = 0; i < result.length; i ++){
+                        setTimeout(function(){
+                            getSearch(result[ind][0], result[ind][1]);
+                            ind++;
+                            $('#status').text('Анализ ' + ind + " из " + result.length);
+                            if(ind == result.length){
+                                setTimeout(function(){
+                                    $('#status').after($('<button/>',{
+                                    type: "button",
+                                    text: "Скачать результат",
+                                    style: "margin-left: 170px;",
+                                    onclick: "saveAll()"
+                                }));}
+                                ,3200)
+                            }
+                        }, time)
+                        time += 4000;
+                    }
+                }  
+                console.log(Parsering);
+                reader.readAsText($("#csvfile")[0].files[0]);
+                
+            } else {
+                alert("Sorry! Your browser does not support HTML5!");
+            }  
+            } else {  
+                alert("Please upload a valid CSV file!");
+            }  
+        }  
+    </script>  
+</html>
