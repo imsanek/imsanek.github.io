@@ -53,18 +53,18 @@
                 for(var x = 0; x < Parsering.length; x++){
                     final.push([]);
                     final[x].push(Parsering[x].class_cat);
-                    final[x].push(Parsering[x].code_man);
-                    final[x].push(Parsering[x].code_cat);
+                    final[x].push(Parsering[x].class_man);
+                    final[x].push(Parsering[x].partnumber);
                     final[x].push(Parsering[x].price_min_instock);
-                    final[x].push(Parsering[x].price_min_order);
+                    final[x].push(Parsering[x].price_count_instock);
                 }
             var ws = XLSX.utils.aoa_to_sheet(final,{origin: "A2"});
             var wb = XLSX.utils.book_new();
-            ws.A1 = {v: "наименование", t: "s"};
-            ws.B1 = {v: "внутренний код производителя позиции", t: "s"};
-            ws.C1 = {v: "внутренний уникальный код позиции", t: "s"};
-            ws.D1 = {v: "минимальная цена среди предложений в наличии", t: "s"};
-            ws.E1 = {v: "минимальная цена среди предложений под заказ", t: "s"};
+            ws.A1 = {v: "Наименование", t: "s"};
+            ws.B1 = {v: "Бренд", t: "s"};
+            ws.C1 = {v: "Артикул", t: "s"};
+            ws.D1 = {v: "Минимальная цена среди предложений в наличии", t: "s"};
+            ws.E1 = {v: "Наличие", t: "s"};
             wb.Props = {
                 Title: "result",
                 Subject: "result",
