@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>Лаборатория</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
+		<script src="DragManager.js"></script>
+		<link rel="stylesheet" href="style.css">
+		<script>
+			DragManager.onDragCancel = function(dragObject) {
+			  dragObject.avatar.rollback();
+			};
+
+			DragManager.onDragEnd = function(dragObject, dropElem, elem) {
+			
+				dragObject.elem.style.position = 'inherit';			
+				dropElem.parentNode.replaceChild(dragObject.elem, dropElem);			
+				dragObject.elem.classList.remove("draggable");		  
+			  
+			};
+		</script>
+	</head>
+
+	<body>
+		
+		
+		<hr>
+		<hr>
+
+	<div class="wrapper">
+
+		<div class="srCont">
+			<h1>Оборудование</h1>
+			<div class="contDev" style="display: flex;
+										flex-wrap: wrap;
+										justify-content: space-between;"></div>
+		</div>
+
+		<div class="trCont">
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<h1>Помещение 1</h1>
+		</div>
+
+		<div class="trCont">
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<h1>Помещение 2</h1>
+		</div>
+
+		<div class="trCont">
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<div class="trCel gray">
+				<div class="trPiece droppable">
+				</div>
+			</div>
+			<h1>Помещение 3</h1>
+		</div>
+
+	</div>
+	<hr>
+	<hr>
+	<div class="add">
+		<h1>Внести оборудование в базу данных</h1>
+		<h2>Наименование</h2>
+		<input type="text" name="title">
+		<h2>Ссылка на изображение</h2>
+		<input type="text" name="url"><br><br>
+		<button class="addBtn">Добавить</button>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+	<script>
+		var database;
+		$.ajax({
+			url: './database.json',
+			method: 'GET',
+			dataType: "html",
+			timeout: 8000,
+			global: false
+		}).done(function(data) {
+			database = JSON.parse(data);
+			for (let i = 0; i < database.length; i++) {
+				$('.contDev').append($('<div/>', {
+					'class': 'piece draggable',
+					'id': 'red',
+					'style': 'background-image: url('+ database[i].icon_url +');background-size: cover',
+					'alt': database[i].title	
+				}));
+			}
+		});
+
+		$('.addBtn').click(function(){
+                var title = $("input[name='title']").val();
+                var url = $("input[name='url']").val();
+                $.ajax({
+                    url: './add.php',
+                    method: 'get',
+                    data:{
+							id: database.length + 1,
+                            title: title,
+                            icon_url: url
+                        },
+                    context: this,
+                    dataType: 'text'
+                }).done(function(data) {
+					$('.addBtn').after($('<span/>', {
+                        text: 'SUCCES',
+                        class: 'send-succesfull GREEN hidden'
+                    }));
+                    $('.send-succesfull').fadeIn();
+				}).fail(function(data) {
+					$('.addBtn').after($('<span/>', {
+                        text: 'ERROR',
+                        class: 'send-succesfull RED hidden'
+                    }));
+                    $('.send-succesfull').fadeIn();
+				})});
+		
+	</script>
+	</body>
+</html>
+
+
+
+

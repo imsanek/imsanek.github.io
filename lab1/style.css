@@ -1,0 +1,98 @@
+.draggable {
+  cursor: pointer;
+}
+.wrapper{
+	display: flex;
+	justify-content: space-around;
+	margin: 0 auto;
+	align-items: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.srCont{
+	width:20vw;
+	margin: 0 auto;
+	box-sizing: border-box;
+	text-align: center;
+}
+.trCont {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	text-align: center;
+	margin: 0 auto;
+	box-sizing: border-box;
+	text-align: center;
+	border: thick double gray;
+	padding: 5px;
+	background-color: rgba(128, 128, 128, 0.233);
+}
+.trCont h1{
+	width: 100%;
+}
+.trCont:nth-child(2n) {
+	width: 15.5vw;
+}
+.trCont:nth-child(2n-1) {
+	width: 29.5vw;
+}
+
+.cel, .trCel {
+	width: 7vw;
+	height: 7vw;
+	float: left;
+	padding-top: 1vw;
+	box-sizing: border-box;
+
+}
+
+.piece{
+	width: 5vw;
+	height: 5vw;
+	border: 1px solid gray;
+	margin: 10px;
+	box-sizing: border-box;
+}
+.trPiece {
+	width: 5vw;
+	height: 5vw;
+	border: 1px solid gray;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+span{
+	color: black;
+	background-color: white;
+	border-radius: 20%;
+	padding: 3px;
+}
+
+.trPiece {
+	border: 1px solid #222;
+}
+
+#red {
+	background: #880000;
+}
+.RED {
+	background: #880000;
+}
+.GREEN {
+	background: #008800;
+}
+.gray {
+	background: #41414173;
+}
+
+.send-succesfull{
+    bottom: 18px;
+    border-radius: 10px;
+    margin-right: 10px;
+    align-self: center;
+    padding: 0px 5px 0 5px;
+    color: #fff;    
+    margin-left: 10px;
+}
